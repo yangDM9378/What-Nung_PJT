@@ -5,7 +5,7 @@ def get_movie_datas():
     total_data = []
 
     # 1페이지부터 500페이지까지 (페이지당 20개, 총 10,000개)
-    for i in range(1, 100):
+    for i in range(1, 5):
         request_url = f"https://api.themoviedb.org/3/movie/popular?api_key={TMDB_API_KEY}&language=ko-KR&page={i}"
         movies = requests.get(request_url).json()
 
@@ -39,7 +39,6 @@ def get_genre_datas():
     
     request_url = f"https://api.themoviedb.org/3/genre/movie/list?api_key={TMDB_API_KEY}&language=en-US"
     genres = requests.get(request_url).json()
-    print(genres)
     for genre in genres['genres']:
         fields = {
             'genre_id': genre['id'],
