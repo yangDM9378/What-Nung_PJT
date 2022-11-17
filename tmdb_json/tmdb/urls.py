@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('backend/', include('tmdb_json.urls')),
+    path('accounts/', include('accounts.urls'))
 ]
