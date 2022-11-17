@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <div class="fill">
+    <div class="fill">
+      <div>
         <b-carousel 
           id="carousel-1"
           v-model="slide"
@@ -21,8 +21,9 @@
         </b-carousel>
       </div>
     </div>
-    <div class="fill">
-      <div class="d-flex justify-content-center">
+    
+    <div class="container fill">
+      <div>
         <MainListItem
         v-for="movie in movies"  
         :key="movie.id"
@@ -30,6 +31,7 @@
         />
       </div>
     </div>
+
   </div>
   </template>
 
@@ -76,7 +78,4 @@ export default {
 </script>
 
 <style>
-.fill{
-  object-fit: fill;
-}
 </style>

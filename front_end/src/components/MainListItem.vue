@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div>
-      <img :src="ImgSrc" @click="goDetail(movie.id)"> 
-    </div>
-        <!-- <img :src="ImgSrc" @click="goDetail(movie.id)"> -->
+    <img :src="ImgSrc" @click="goDetail(movie.id)"> 
   </div>
 </template>
 

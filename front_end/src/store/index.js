@@ -15,6 +15,10 @@ export default new Vuex.Store({
   state: {
     movies:[],
     movie:{},
+
+    // 유저회원가입 로그인
+    access: '',
+    refresh: '',
   },
   getters: {
   },
@@ -24,8 +28,32 @@ export default new Vuex.Store({
     },
     CLICK_MOVIE(state, movie) {
       state.movie = movie
-    }
+    },
 
+    // 회원
+    initializeStore(state) {
+      if ( localStorage.getItem('access') ) {
+        state.access = localStorage.getItem("access")
+        state.refresh = localStorage.getItem("refresh")
+
+      } else {
+        state.access=''
+        state.refresh=''
+
+      }
+    },
+    setAccess(state, access) {
+      state.access = access
+    },
+    setRefresh(state, refresh) {
+      state.refresh = refresh
+    },
+    REMOVE_ACCESS (state) {
+      state.access = '';
+      state.refresh = '';
+      state.userdata = '';
+      state.isAuthenticated = false;
+    },
 
   },
   actions: {
