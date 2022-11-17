@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div>
+      <div class="fill">
         <b-carousel 
           id="carousel-1"
           v-model="slide"
@@ -9,7 +9,7 @@
           controls
           indicators
           background="#ababab"
-          img-width="1024"
+          img-width="100"
           img-height="480"
           style="text-shadow: 1px 1px 2px #333;"
           @sliding-start="onSlideStart"
@@ -20,19 +20,18 @@
           </b-carousel-slide>
         </b-carousel>
       </div>
-
-
-    <hr>
-    <hr>
     </div>
-      <h1>list</h1>
-      <MainListItem
-      v-for="movie in movies"
-      :key="movie.id"
-      :movie="movie"
-      />
+    <div class="fill">
+      <div class="d-flex justify-content-center">
+        <MainListItem
+        v-for="movie in movies"  
+        :key="movie.id"
+        :movie="movie"
+        />
+      </div>
+    </div>
   </div>
-</template>
+  </template>
 
 <script>
 import _ from 'lodash';
@@ -48,7 +47,7 @@ export default {
     },
     RandomMovies(){
       const arr_sample = _.sampleSize(this.movies,5).map((el) =>{
-        return el.poster_path
+        return el.backdrop_path
       })
       return arr_sample
     },
@@ -77,5 +76,7 @@ export default {
 </script>
 
 <style>
-
+.fill{
+  object-fit: fill;
+}
 </style>

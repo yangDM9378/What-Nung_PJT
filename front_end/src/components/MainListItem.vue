@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
-    <div class="card">
-      <img :src="ImgSrc" alt="">
+  <div>
+    <div>
+      <img :src="ImgSrc" @click="goDetail(movie.id)"> 
     </div>
-
+        <!-- <img :src="ImgSrc" @click="goDetail(movie.id)"> -->
   </div>
 </template>
 
@@ -16,22 +16,24 @@ export default {
   },
   computed:{
     ImgSrc(){
-      const url = 'https://image.tmdb.org/t/p/w500'
-      return url+this.movie.poster_path
+      const urls = 'https://image.tmdb.org/t/p/w500'
+      return urls+this.movie.poster_path
     }
-    
+  },
+  methods: {
+    goDetail(id) {
+      this.$router.push({ name:'detail', params:{id} })
+      return this.$store.dispatch('clickMovie',this.movie)
+    }
   }
 }
 </script>
 
 <style>
-.container{
-  display: flex;
-  flex-direction: column;
-  width: calc((100% / 3) - 2rem);
-}
-.card{
-  width: 50%;
-  height: 0;
-}
+.card { 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* grid-gap: 20px; */
+  align-items: start;
+  }
 </style>
