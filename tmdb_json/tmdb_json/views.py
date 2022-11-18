@@ -5,6 +5,9 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from .serializers import MovieSerializer
 from .models import Genre, Movie
 from django.shortcuts import render
+# 권한
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 @api_view(['GET'])
