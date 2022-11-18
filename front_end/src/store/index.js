@@ -34,10 +34,14 @@ export default new Vuex.Store({
     },
     SIGNUP_TOKEN(state, token) {
       state.token = token
-      router.push({ name: 'MainView' })
+      router.push({ name: 'LogInView' })
     },
     LOGIN_TOKEN(state, token) {
       state.token = token
+      router.push({ name: 'MainView' })
+    },
+    LOGOUT(state) {
+      state.token = null
       router.push({ name: 'LogInView' })
     }
   },
@@ -67,6 +71,7 @@ export default new Vuex.Store({
           username: payload.username,
           password1: payload.password1,
           password2: payload.password2,
+          nick_name: payload.nick_name,
         }
       })
         .then((res) => {
@@ -90,6 +95,16 @@ export default new Vuex.Store({
           context.commit('LOGIN_TOKEN', res.data.key)
         })
     },
+    logOut(context) {
+      axios({
+        method: 'post',
+        url: `${API_URL}/accounts/logout/`
+      })
+      .then((res) => {
+        console.log(res.detail)
+        context.commit('LOGOUT')
+      })
+    }
 
   },
   modules: {
