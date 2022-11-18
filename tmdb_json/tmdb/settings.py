@@ -28,30 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:8080','http://127.0.0.1:8080']
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
-}
-
-
-SIMPLE_JWT = {
-   'AUTH_HEADER_TYPES': ('JWT',),
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
-
-}
-
 # Application definition
 
 INSTALLED_APPS = [
     'tmdb_json',
     'accounts',
     'rest_framework',
-    # 회원가입
-    'djoser',
-    'rest_framework_simplejwt',
     # CORS policy
     "corsheaders",
     'django.contrib.admin',
