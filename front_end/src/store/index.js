@@ -19,6 +19,11 @@ export default new Vuex.Store({
     token:null,
   },
   getters: {
+
+    // 로그인
+    isLogin(state) {
+      return state.token ? true : false
+    }
   },
   mutations: {
     GET_MAIN(state, movies) {
@@ -27,10 +32,13 @@ export default new Vuex.Store({
     CLICK_MOVIE(state, movie) {
       state.movie = movie
     },
-    SAVE_TOKEN(state, token) {
+    SIGNUP_TOKEN(state, token) {
       state.token = token
-      // console.log(token)
       router.push({ name: 'MainView' })
+    },
+    LOGIN_TOKEN(state, token) {
+      state.token = token
+      router.push({ name: 'LogInView' })
     }
   },
   actions: {
@@ -62,8 +70,10 @@ export default new Vuex.Store({
         }
       })
         .then((res) => {
-          // console.log(res)
-          context.commit('SAVE_TOKEN', res.data.key)
+          context.commit('SIGNUP_TOKEN', res.data.key)
+        })
+        .catch((error) => {
+          console.log(error)
         })
     },
     logIn(context, payload) {
@@ -77,7 +87,7 @@ export default new Vuex.Store({
       })
         .then((res) => {
           // console.log(res)
-          context.commit('SAVE_TOKEN', res.data.key)
+          context.commit('LOGIN_TOKEN', res.data.key)
         })
     },
 
