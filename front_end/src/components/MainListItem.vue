@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='item'>
     <img :src="ImgSrc" @click="goDetail(movie.id)"> 
   </div>
 </template>
