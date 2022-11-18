@@ -1,50 +1,32 @@
 <template>
   <div>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner" >
-    <div class="carousel-item" v-for="(randommovie, index) in RandomMovies"
-      :key="index" :class="{active : index === getactActiveIdx}">
-      <img class="d-block w-100" :src="url+randommovie" >
-    </div>
-  </div>
-<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" @click="decrease">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only"></span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" @click="increase">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only"></span>
-  </a>
-</div>
-    <!-- <div class="container">
+
+    <div class="conddtainer">
       <div>
-        <b-carousel 
+        <b-carousel
           id="carousel-1"
           v-model="slide"
           :interval="4000"
           controls
+          label-next = ''
+          label-prev=''
           indicators
           background="#ababab"
-          img-width="100"
+          img-width="1024"
           img-height="480"
           style="text-shadow: 1px 1px 2px #333;"
           @sliding-start="onSlideStart"
           @sliding-end="onSlideEnd"
-        >
+        > 
           <b-carousel-slide :img-src="url+randommovie" v-for="(randommovie, index) in RandomMovies"
-      :key="index">
+          :key="index">
           </b-carousel-slide>
         </b-carousel>
       </div>
-    </div> -->
-    
-    <div>
-      <div class='container'>
+    </div >
+
+    <h1>전체 영화</h1>
+      <div class="items">
         <MainListItem
         v-for="movie in movies"  
         :key="movie.id"
@@ -53,7 +35,6 @@
       </div>
     </div>
 
-  </div>
   </template>
 
 <script>
@@ -120,9 +101,8 @@ export default {
 </script>
 
 <style>
-  .container{
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
+.container {
+  object-fit: fill;
+}
 
-  }
 </style>

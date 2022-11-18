@@ -1,7 +1,22 @@
 <template>
-  <div class='item'>
-    <img :src="ImgSrc" @click="goDetail(movie.id)"> 
-  </div>
+    <div>
+      <b-card-group>
+    <b-card title="Title" :img-src="ImgSrc" img-top>
+      <template #footer>
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </template>
+    </b-card>
+
+    <b-card title="Title" img-src="https://placekitten.com/g/300/450" img-alt="Image" img-top>
+
+      <template #footer>
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </template>
+    </b-card>
+  </b-card-group>
+      <img :src="ImgSrc" @click="goDetail(movie.id)"> 
+    </div>
+  
 </template>
 
 <script>
@@ -27,10 +42,5 @@ export default {
 </script>
 
 <style>
-.card { 
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  /* grid-gap: 20px; */
-  align-items: start;
-  }
+
 </style>
