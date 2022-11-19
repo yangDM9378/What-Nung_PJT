@@ -5,7 +5,7 @@ import MovieDetailview from '@/views/MovieDetailview'
 import SignUpView from '@/views/SignUpView'
 import LogInView from '@/views/LogInView'
 import GenreView from '@/views/GenreView'
-
+import AllGenreView from '@/views/AllGenreView'
 Vue.use(VueRouter)
 
 const routes = [
@@ -23,6 +23,11 @@ const routes = [
     path: '/login',
     name: 'LogInView',
     component: LogInView
+  },
+  {
+    path: '/Genre',
+    name: 'AllGenreView',
+    component: AllGenreView
   },
   {
     path: '/Genre/:genre',

@@ -4,7 +4,7 @@
 		"pk": 28,
 		"fields": {
 			"genre_id": 28,
-			"name": "Action"
+			"name": "액션"
 		}
 	},
 	{
@@ -12,7 +12,7 @@
 		"pk": 12,
 		"fields": {
 			"genre_id": 12,
-			"name": "Adventure"
+			"name": "모험"
 		}
 	},
 	{
@@ -20,7 +20,7 @@
 		"pk": 16,
 		"fields": {
 			"genre_id": 16,
-			"name": "Animation"
+			"name": "애니메이션"
 		}
 	},
 	{
@@ -28,7 +28,7 @@
 		"pk": 35,
 		"fields": {
 			"genre_id": 35,
-			"name": "Comedy"
+			"name": "코미디"
 		}
 	},
 	{
@@ -36,7 +36,7 @@
 		"pk": 80,
 		"fields": {
 			"genre_id": 80,
-			"name": "Crime"
+			"name": "범죄"
 		}
 	},
 	{
@@ -44,7 +44,7 @@
 		"pk": 99,
 		"fields": {
 			"genre_id": 99,
-			"name": "Documentary"
+			"name": "다큐멘터리"
 		}
 	},
 	{
@@ -52,7 +52,7 @@
 		"pk": 18,
 		"fields": {
 			"genre_id": 18,
-			"name": "Drama"
+			"name": "드라마"
 		}
 	},
 	{
@@ -60,7 +60,7 @@
 		"pk": 10751,
 		"fields": {
 			"genre_id": 10751,
-			"name": "Family"
+			"name": "가족"
 		}
 	},
 	{
@@ -68,7 +68,7 @@
 		"pk": 14,
 		"fields": {
 			"genre_id": 14,
-			"name": "Fantasy"
+			"name": "판타지"
 		}
 	},
 	{
@@ -76,7 +76,7 @@
 		"pk": 36,
 		"fields": {
 			"genre_id": 36,
-			"name": "History"
+			"name": "역사"
 		}
 	},
 	{
@@ -84,7 +84,7 @@
 		"pk": 27,
 		"fields": {
 			"genre_id": 27,
-			"name": "Horror"
+			"name": "공포"
 		}
 	},
 	{
@@ -92,7 +92,7 @@
 		"pk": 10402,
 		"fields": {
 			"genre_id": 10402,
-			"name": "Music"
+			"name": "음악"
 		}
 	},
 	{
@@ -100,7 +100,7 @@
 		"pk": 9648,
 		"fields": {
 			"genre_id": 9648,
-			"name": "Mystery"
+			"name": "미스터리"
 		}
 	},
 	{
@@ -108,7 +108,7 @@
 		"pk": 10749,
 		"fields": {
 			"genre_id": 10749,
-			"name": "Romance"
+			"name": "로맨스"
 		}
 	},
 	{
@@ -116,7 +116,7 @@
 		"pk": 878,
 		"fields": {
 			"genre_id": 878,
-			"name": "Science Fiction"
+			"name": "SF"
 		}
 	},
 	{
@@ -124,7 +124,7 @@
 		"pk": 10770,
 		"fields": {
 			"genre_id": 10770,
-			"name": "TV Movie"
+			"name": "TV 영화"
 		}
 	},
 	{
@@ -132,7 +132,7 @@
 		"pk": 53,
 		"fields": {
 			"genre_id": 53,
-			"name": "Thriller"
+			"name": "스릴러"
 		}
 	},
 	{
@@ -140,7 +140,7 @@
 		"pk": 10752,
 		"fields": {
 			"genre_id": 10752,
-			"name": "War"
+			"name": "전쟁"
 		}
 	},
 	{
@@ -148,7 +148,7 @@
 		"pk": 37,
 		"fields": {
 			"genre_id": 37,
-			"name": "Western"
+			"name": "서부"
 		}
 	}
 ]

@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 @api_view(['GET'])
-def index(request):
+def main(request):
     movies = get_list_or_404(Movie)
     serializer = MovieSerializer(movies, many=True)
     return Response(serializer.data)

@@ -64,6 +64,10 @@ export default new Vuex.Store({
     clickMovie(context, movie) {
       context.commit('CLICK_MOVIE', movie)
     },
+    // 장르
+    
+
+    // 유저정보
     signUp(context, payload) {
       axios({
         method: 'post',

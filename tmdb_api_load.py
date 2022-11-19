@@ -39,7 +39,7 @@ get_movie_datas()
 def get_genre_datas():
     total_data = []
     
-    request_url = f"https://api.themoviedb.org/3/genre/movie/list?api_key={TMDB_API_KEY}&language=en-US"
+    request_url = f"https://api.themoviedb.org/3/genre/movie/list?api_key={TMDB_API_KEY}&language=ko-KR"
     genres = requests.get(request_url).json()
     for genre in genres['genres']:
         fields = {
