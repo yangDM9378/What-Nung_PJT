@@ -104,5 +104,9 @@ export default {
 .container {
   object-fit: fill;
 }
+.items{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+}
 
 </style>
