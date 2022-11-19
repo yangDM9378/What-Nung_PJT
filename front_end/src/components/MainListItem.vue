@@ -2,11 +2,11 @@
     <div>
    
     <b-card-group>
-    <b-card title= '' :img-src="ImgSrc" img-top>
+    <b-card title= '' :img-src="ImgSrc" img-top @click="goDetail(movie.id)">
     </b-card>
 
   </b-card-group>
-      <!-- <img :src="ImgSrc" @click="goDetail(movie.id)">  -->
+      <!-- <img :src="ImgSrc" >  -->
     </div>
   
 </template>
@@ -23,7 +23,6 @@ export default {
   computed:{
     ImgSrc(){
       const urls = 'https://image.tmdb.org/t/p/w500'
-      console.log(this.movie)
       return urls+this.movie.poster_path
     }
   },

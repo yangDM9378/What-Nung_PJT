@@ -2,11 +2,13 @@
   <div id="app">
     <div class="acontainer">
       <nav>
+        <!-- <button @click="logOut">로그아웃</button> -->
         <router-link :to="{name: 'MainView'}">Main</router-link> |
         <router-link :to="{ name: 'SignUpView'}">회원가입</router-link> |
         <router-link :to="{ name: 'LogInView' }">로그인</router-link>
       </nav>
     </div>
+    
     <router-view/>
   </div>
 </template>
@@ -26,26 +28,29 @@
 }
 
 nav {
+  opacity: 0.8;
   position: fixed;
   background: #000001;
   top: 0;
   right: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 55px;
   display: table;
   margin: 0 auto;
   z-index:1;
 }
 
 .acontainer{
+  line-height: 55px;
+  text-align:right;
   display: flex;
 }
 
 
 nav a {
+  margin-right: 20px;
   justify-content: center;
-  text-align: center;
   font-size: 30px;
   font-weight: bold;
   color: #f1f1f6;
