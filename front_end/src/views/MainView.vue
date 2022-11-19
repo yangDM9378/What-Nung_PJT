@@ -1,6 +1,5 @@
 <template>
   <div>
-    <button @click="logOut">로그아웃</button>
     <MainList/>
   </div>
 </template>
@@ -24,9 +23,6 @@ export default {
     getMain(){
       this.$store.dispatch('getMain')
     },
-    logOut() {
-      this.$store.dispatch('logOut')
-    }
   }
 }
 </script>

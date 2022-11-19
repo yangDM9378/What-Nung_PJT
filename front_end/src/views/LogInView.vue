@@ -30,18 +30,8 @@
         <span><a href="">비밀번호 찾기</a></span>
         <span><a href="signup.html" >회원가입</a></span>
     </p> -->
-  </div>
     </div>
-    <!-- <h1>LogIn Page</h1>
-    <form @submit.prevent="logIn">
-      <label for="username">username : </label>
-      <input type="text" id="username" v-model="username"><br>
-
-      <label for="password"> password : </label>
-      <input type="password" id="password" v-model="password"><br>
-
-      <input type="submit" value="logIn">
-    </form> -->
+    </div>
   </div>
 </template>
 

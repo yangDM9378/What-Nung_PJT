@@ -34,29 +34,12 @@
     </form>
 
     <hr>
-    <p class="find">
-        <span><a href="signin.html" >로그인 가실?</a></span>
-    </p>
+    <!-- <p class="find">
+        <span><a href="" >로그인 가실?</a></span>
+    </p> -->
     </div>
   </div>
   </div>
-<!-- 
-    <h1>Sign Up Page</h1>
-    <form @submit.prevent="signUp">
-      <label for="username">아이디입력 : </label>
-      <input type="text" id="username" v-model="username"><br>
-
-      <label for="password1">이건 패스워드 : </label>
-      <input type="password" id="password1" v-model="password1"><br>
-
-      <label for="password2">이건 패스워드 확인 : </label>
-      <input type="password" id="password2" v-model="password2"><br>
-      
-      <label for="nick_name">닉네임 입력해 : </label>
-      <input type="nick_name" id="nick_name" v-model="nick_name"><br>
-      <input type="submit" value="SignUp">
-    </form>
-  </div> -->
 </template>
 
 <script>

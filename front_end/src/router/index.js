@@ -4,7 +4,7 @@ import MainView from '@/views/MainView'
 import MovieDetailview from '@/views/MovieDetailview'
 import SignUpView from '@/views/SignUpView'
 import LogInView from '@/views/LogInView'
-
+import GenreView from '@/views/GenreView'
 
 Vue.use(VueRouter)
 
@@ -23,6 +23,11 @@ const routes = [
     path: '/login',
     name: 'LogInView',
     component: LogInView
+  },
+  {
+    path: '/Genre/:genre',
+    name: 'GenreView',
+    component: GenreView
   },
   {
     path: '/:id',

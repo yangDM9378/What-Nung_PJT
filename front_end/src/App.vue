@@ -1,20 +1,19 @@
 <template>
-  <div id="app">
-    <div class="acontainer">
-      <nav>
-        <!-- <button @click="logOut">로그아웃</button> -->
-        <router-link :to="{name: 'MainView'}">Main</router-link> |
-        <router-link :to="{ name: 'SignUpView'}">회원가입</router-link> |
-        <router-link :to="{ name: 'LogInView' }">로그인</router-link>
-      </nav>
-    </div>
-    
+  <div id="app"> 
+    <NaviBar/>
     <router-view/>
   </div>
 </template>
 
 
 <script>
+import NaviBar from '@/components/NaviBar'
+export default {
+  name: 'App',
+  components: {
+    NaviBar,
+  },
+}
 </script>
 
 

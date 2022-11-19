@@ -24,7 +24,7 @@
         </b-carousel>
       </div>
     </div >
-
+    <h1 >h1</h1>
     <h1>전체 영화</h1>
       <div class="items">
         <MainListItem
@@ -53,7 +53,6 @@ export default {
       const arr_sample = _.sampleSize(this.movies,5).map((el) =>{
         return el.backdrop_path
       })
-      console.log(arr_sample)
       return arr_sample
     },
     url(){
@@ -73,30 +72,14 @@ export default {
         activeIdx: 0,
       }
     },
-    methods: {
-      onSlideStart() {
-        this.sliding = true
-      },
-      onSlideEnd() {
-        this.sliding = false
-      },
-      increase() {
-        if (this.activeIdx == 4){
-          this.activeIdx = 0 
-        } else {
-          this.activeIdx += 1 
-        }
-        console.log("increase")
-      },
-      decrease() {
-        if (this.activeIdx == 0){
-          this.activeIdx = 4 
-        } else {
-          this.activeIdx -= 1
-        }
-        console.log("decrease")
-      },
-    }
+  methods: {
+    onSlideStart() {
+      this.sliding = true
+    },
+    onSlideEnd() {
+      this.sliding = false
+    },
+  }
 }
 </script>
 

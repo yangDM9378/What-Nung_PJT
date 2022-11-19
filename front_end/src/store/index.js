@@ -17,9 +17,9 @@ export default new Vuex.Store({
     movies:[],
     movie:{},
     token:null,
+    genres_movie:null
   },
   getters: {
-
     // 로그인
     isLogin(state) {
       return state.token ? true : false
@@ -32,6 +32,7 @@ export default new Vuex.Store({
     CLICK_MOVIE(state, movie) {
       state.movie = movie
     },
+    // 로그인
     SIGNUP_TOKEN(state, token) {
       state.token = token
       router.push({ name: 'LogInView' })
@@ -91,7 +92,7 @@ export default new Vuex.Store({
         }
       })
         .then((res) => {
-          // console.log(res)
+          console.log(res)
           context.commit('LOGIN_TOKEN', res.data.key)
         })
     },
