@@ -17,7 +17,8 @@ export default new Vuex.Store({
     movies:[],
     movie:{},
     token:null,
-    genres_movie:null
+    genres_movie:null,
+    comment:[]
   },
   getters: {
     // 로그인
@@ -31,6 +32,10 @@ export default new Vuex.Store({
     },
     CLICK_MOVIE(state, movie) {
       state.movie = movie
+    },
+
+    GETCOMMENT(state, comment) {
+      state.comment = comment
     },
     // 로그인
     SIGNUP_TOKEN(state, token) {
@@ -64,7 +69,18 @@ export default new Vuex.Store({
     clickMovie(context, movie) {
       context.commit('CLICK_MOVIE', movie)
     },
-    // 장르
+    getComment(context) {
+      axios({
+       method: 'get',
+       url: `${API_URL}/backend/comments/`
+    })
+      .then((res) => {
+        context.commit('GETCOMMENT', res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    },
     
 
     // 유저정보

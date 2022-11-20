@@ -1,12 +1,15 @@
 <template>
   <div>
-    <h2>comment 뿌리자</h2>
+    {{ comment }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CommentListItem'
+  name: 'CommentListItem',
+  props: {
+    comment: Object
+  },
 }
 </script>
 

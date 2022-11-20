@@ -1,20 +1,46 @@
 <template>
   <div>
     <h1>커맨트</h1>
-    <CommentListItem/>
+    <CommentListItem
+    v-for='comment in comments'
+    :key="comment.id"
+    :comment='comment'/>
     <CreateComment/>
-    {{ $route.params.id }}
+
   </div>
 </template>
 
 <script>
-import CommentListItem from '@/components/CommentListItem'
 import CreateComment from '@/components/CreateComment'
+import CommentListItem from '@/components/CommentListItem'
+
 export default {
   name: 'CommentList',
+  data() {
+    return {
+      movie_id: this.$route.params.id
+    }
+  },
+  computed: {
+    comments() {
+      return this.$store.state.comment.filter((el) => {
+        if (el.movie == this.movie_id) {
+          return el
+        }
+      })
+    }
+  },
   components: {
+    CreateComment,
     CommentListItem,
-    CreateComment
+  },
+  methods: {
+    getComment() {
+      return this.$store.dispatch('getComment')
+    }
+  },
+  mounted() {
+    this.getComment()
   }
 }
 </script>
