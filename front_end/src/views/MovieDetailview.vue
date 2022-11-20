@@ -13,10 +13,15 @@
       </div>
     </div>
     </div>
-      <p v-for="(cast,idx) in this.movie?.credit_set"
-      :key="`case-${idx}`">{{cast.cast_name}}</p>
+      <!-- <p v-for="(cast,idx) in this.movie?.credit_set"
+      :key="`case-${idx}`">{{cast.cast_name}}</p> -->
     
-    
+    <hr>
+    <nav>
+      <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
+      <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
+      <router-view></router-view>
+    </nav>
     </div>
 </template>
 <script> 
@@ -46,7 +51,7 @@ export default {
     }
   },
   created() {
-    this.getMovieById(this.$route.params.id)
+    this.getMovieById()
   }
 }
 </script>

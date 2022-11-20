@@ -15,7 +15,7 @@ class MovieSerializer(serializers.ModelSerializer):
         
         class Meta:
             model = Credit
-            fields = ('cast_name',)
+            fields = ('cast_name', 'profile_path')
 
     credit_set = CreditSerializer(many=True, read_only=True)
 

@@ -6,6 +6,8 @@ import SignUpView from '@/views/SignUpView'
 import LogInView from '@/views/LogInView'
 import GenreView from '@/views/GenreView'
 import AllGenreView from '@/views/AllGenreView'
+import InformationList from '@/components/InformationList'
+import CommentList from '@/components/CommentList'
 Vue.use(VueRouter)
 
 const routes = [
@@ -37,7 +39,20 @@ const routes = [
   {
     path: '/:id',
     name: 'detail',
-    component: MovieDetailview
+    component: MovieDetailview,
+    children: [
+      {
+        path:'information',
+        component: InformationList,
+        name:'InformationList',
+        props:true
+      },
+      {
+        path:'comment',
+        component: CommentList,
+        name:'CommentList',
+      }
+    ]
   },
 ]
 
