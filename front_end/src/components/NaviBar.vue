@@ -2,7 +2,7 @@
   <div>
     <div class="acontainer">
       <nav>
-        <div class="link1">
+        <div class="link1" style="text-decoration:none;">
           <router-link :to="{ name: 'AllGenreView' }">전체</router-link>
           <router-link :to="{ name: 'GenreView', params:{ genre: '드라마' }}">드라마</router-link>
           <router-link :to="{ name: 'GenreView', params:{ genre: '액션' }}">액션</router-link>
@@ -39,9 +39,13 @@ export default {
 </script>
 
 <style>
-.acontainer{
-  display: inline;
+
+
+a {
+  text-decoration: none;
+  
 }
+
 .logout_btn {
     margin-right: 20px;
     justify-content: center;
@@ -52,9 +56,15 @@ export default {
     background-color:transparent;
 }
 .link1{
-  text-align: left;
+  float: left;
+  display: inline-block;
+  font-size: 20px;
+
 }
 .link2{
   text-align: right;
+    display: inline-block;
+    font-size: 20px;
+    text-decoration: none;
 }
 </style>

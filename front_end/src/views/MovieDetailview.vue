@@ -63,8 +63,6 @@ export default {
 }
 .back{
   background-size: cover;
-  min-height: 1000px;
-  height: 100%;
   width: 100%;
   color: #fff;
   position: absolute;
@@ -73,11 +71,14 @@ export default {
 }
 
 .content{
+  background-color: rgba(11, 7, 7, 0.3);
+  /* padding-bottom: 80px; */
   position: relative;
   padding-top: 30%;
   padding-left: 20px;
   text-align: left;
-  color: white;
+  font-weight: bold;
+  color: rgb(243, 237, 237);
   font-family: Noto Sans KR,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 
