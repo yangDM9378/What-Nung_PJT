@@ -1,13 +1,10 @@
 <template>
-    <div>
-   
+  <div>
     <b-card-group>
-    <b-card title= '' :img-src="ImgSrc" img-top @click="goDetail(movie.id)">
-    </b-card>
-
-  </b-card-group>
-      <!-- <img :src="ImgSrc" >  -->
-    </div>
+      <b-card title= '' :img-src="ImgSrc" img-top @click="goDetail(movie.id)">
+      </b-card>
+    </b-card-group>
+  </div>
   
 </template>
 
@@ -17,8 +14,7 @@
 export default {
   name:'MainListItem',
   props:{
-    movie:Object
-    
+    movie:Object 
   },
   computed:{
     ImgSrc(){

@@ -5,11 +5,12 @@ id_data = []
 def get_movie_datas():
     total_data = []
     # 1페이지부터 500페이지까지 (페이지당 20개, 총 10,000개)
-    for i in range(1, 2):
+    for i in range(1, 5):
         request_url = f"https://api.themoviedb.org/3/movie/popular?api_key={TMDB_API_KEY}&language=ko-KR&page={i}"
         movies = requests.get(request_url).json()
 
         for movie in movies['results']:
+            if movie['adult'] == True: continue
             if movie.get('release_date', ''):
                 fields = {
                     'movie_id': movie['id'],
@@ -64,9 +65,11 @@ get_genre_datas()
 def get_credits_datas():
     total_data=[]
     for movie_id in id_data:
+        cnt=0
         request_url = f'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key={TMDB_API_KEY}&language=ko-KR'
         credits = requests.get(request_url).json()
         for credit in credits['cast']:
+            if cnt > 5:continue
             fields = {
                 'credit_id': movie_id,
                 'cast_name': credit['name'],
@@ -76,7 +79,7 @@ def get_credits_datas():
                 "model": "tmdb_json.credit",
                 "fields": fields
             }
-
+            cnt+=1
             total_data.append(data)
 
     with open("credits.json", "w", encoding="utf-8") as w:

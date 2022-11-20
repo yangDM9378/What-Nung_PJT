@@ -1,17 +1,25 @@
 <template>
   <div>
     <h1>나는 {{ this.$route.params.genre }}야 </h1>
-    {{ this.genre_select }}
     <!-- v-for 로 내려서 하기 -->
-    <GenreListItem/>
+    <div class="items">
+    <GenreListItem 
+      v-for="genre in genre_select"
+      :key=genre.id
+      :genre="genre"
+    />
+    </div>
     <hr>
   </div>
 </template>
 
 <script>
-
+import GenreListItem from '@/components/GenreListItem'
 export default {
   name: 'GenreView',
+  components: {
+    GenreListItem
+  },
   computed: {
     movies() {
       return this.$store.state.movies
