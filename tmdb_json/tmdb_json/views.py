@@ -15,3 +15,11 @@ def main(request):
     movies = get_list_or_404(Movie)
     serializer = MovieSerializer(movies, many=True)
     return Response(serializer.data)
+
+@api_view(['POST'])
+def comment_create(request, movie_pk):
+    movie = get_object_or_404(Movie, pk=movie_pk)
+    serializer = CommentSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save(movie=movie)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

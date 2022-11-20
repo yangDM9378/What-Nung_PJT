@@ -22,3 +22,7 @@ class Credit(models.Model):
     credit_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
     cast_name = models.TextField()
     profile_path = models.TextField(null=True)
+
+class Comment(models.Model):
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    
