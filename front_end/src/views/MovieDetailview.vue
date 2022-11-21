@@ -1,44 +1,58 @@
 <template>
- <div class="parent">
-  <div class="movieparent">
-    <div class="back" :style="{backgroundImage:  `url('${ImgSrc}')`}" ></div>
-    <div class="content">
-      <div>
+ <div class="Container-fluid">
+  <div >
+    <div class="row"
+    id="backdrop"
+    :style="{backgroundImage:  `url('${ImgSrc}')`}"
+    > 
+    <div >
+      <div class="row"
+      id="content">
         <h1>{{this.movie?.title}}</h1>
-        <!-- <button @click="myMovie">내가 너 찜했다!</button> -->
+         <button @click="myMovie">내가 너 찜했다!</button>
+         <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
+         <h3>줄거리 | {{ this.movie?.overview.substr(0,150) }}...</h3>
+        </div>
       </div>
-      <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
-      <div class="overviewcontaioner">
-      <h3 class="overview col-5">줄거리 | {{ this.movie?.overview.substr(0,150) }}...</h3>
+      <div class="row"
+      id="genrename">
+        <p>장르 | </p>
+        <p v-for="(genre,index) in this.movie?.genres"
+        :key="index">{{ genre.name }}</p>s
+      </div>
+    </div>
+    <div class="row">
+      <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
+      <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
+      <router-view></router-view>
+    </div>
+  </div>
+  <!-- <div>
+    <div class="back" :style="{backgroundImage:  `url('${ImgSrc}')`}" >
+    <div class="content">
+      <h1>{{this.movie?.title}}</h1> -->
+      <!-- <button @click="myMovie">내가 너 찜했다!</button> -->
+      <!-- <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
+       <h3 class="overview col-5">줄거리 | {{ this.movie?.overview.substr(0,150) }}...</h3>
       <div class="gencontainer">
         <p>장르 | </p>
         <p v-for="(genre,index) in this.movie?.genres"
         :key="index">{{ genre.name }}</p>
       </div>
-      </div>
-      
     </div>
-   
   </div>
-    
-
-      <!-- <p v-for="(cast,idx) in this.movie?.credit_set"
-      :key="`case-${idx}`">{{cast.cast_name}}</p> -->
-    
-    <hr>
-      <!-- <nav>
-        <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
-        <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
-        <router-view></router-view>
-      </nav> -->
-    <div class="back2">
+  <div
+  style="float:left; margin-top:90vh;"
+  >
     <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
     <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
     <router-view></router-view>
-    </div>
+  </div>
+</div> -->
+</div>
    
     
-    </div>
+ 
 </template>
 <script> 
 export default {
@@ -79,6 +93,14 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
 
+.container{
+  margin: 0px;
+}
+
+
+
+
+
 .gencontainer{
   display: flex;
   gap:10px;
@@ -90,7 +112,7 @@ export default {
 .back{
   background-size: cover;
   width: 100%;
-  height: 80%;
+  height: 82vh;
   color: #fff;
   position: absolute;
   opacity: 0.9;
@@ -98,15 +120,20 @@ export default {
   background-position: center;
 }
 
-.content{
+#content{
   background-color: rgba(11, 7, 7, 0.3);
   position: relative;
-  padding-top: 30%;
+  padding-top: 30vh;
   padding-left: 20px;
   text-align: left;
   font-weight: bold;
   color: rgb(243, 237, 237);
   font-family: Noto Sans KR,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+
+#genrename{
+  display: inline;
+  text-align: left;
 }
 
 .overviewcontaioner{
@@ -119,6 +146,12 @@ export default {
   font-size: 30px;
   column-gap: 30px;
 }
+
+#backdrop {
+  height: 700px;
+  background-size: cover;
+}
+
 
 
 </style>
