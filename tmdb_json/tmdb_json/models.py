@@ -7,7 +7,6 @@ class Genre(models.Model):
     genre_id = models.IntegerField()
     name = models.CharField(max_length=100)
 
-
 class Movie(models.Model):
     title = models.CharField(max_length=100)
     released_date = models.DateTimeField(auto_now_add=True)
@@ -28,3 +27,4 @@ class Comment(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     comment = models.TextField()
     nickname = models.TextField()
+

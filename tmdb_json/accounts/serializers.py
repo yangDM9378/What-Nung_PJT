@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from dj_rest_auth.registration.serializers import RegisterSerializer
 from django.contrib.auth import get_user_model
+from tmdb_json.models import Genre, Movie, Comment
+
+
 
 class CustomRegisterSerializer(RegisterSerializer):
     nick_name = serializers.CharField()
@@ -18,3 +21,10 @@ class UserDetailsSerializer(serializers.ModelSerializer):
         model = UserModel
         fields = ('pk', *extra_fields)
         read_only_fields = ('nick_name',)
+
+
+class MymovieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = '__all__'
+        read_only_fields = ('movie',)
