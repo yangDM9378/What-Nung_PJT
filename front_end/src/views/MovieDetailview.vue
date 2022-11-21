@@ -3,22 +3,26 @@
   <div >
     <div class="row"
     id="backdrop"
-    :style="{backgroundImage:  `url('${ImgSrc}')`}"
+    :style="{backgroundImage: `linear-gradient(to top, rgb(0, 0, 0) 2%, rgba(0, 0, 0, 0) 50%), linear-gradient(to right, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.1) 100%), url('${ImgSrc}')`}"
     > 
     <div >
       <div class="row"
       id="content">
         <h1>{{this.movie?.title}}</h1>
-         <button @click="myMovie">내가 너 찜했다!</button>
+         <!-- <button @click="myMovie">내가 너 찜했다!</button> -->
+        <button>내가 너 찜했다!</button>
+
          <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
          <h3>줄거리 | {{ this.movie?.overview.substr(0,150) }}...</h3>
+         <div clas="row">
+        <div class="column"
+        id="genrename">
+          <p>장르 | </p>
+          <p v-for="(genre,index) in this.movie?.genres"
+          :key="index">{{ genre.name }}</p>
+        </div>
         </div>
       </div>
-      <div class="row"
-      id="genrename">
-        <p>장르 | </p>
-        <p v-for="(genre,index) in this.movie?.genres"
-        :key="index">{{ genre.name }}</p>s
       </div>
     </div>
     <div class="row">
@@ -118,22 +122,27 @@ export default {
   opacity: 0.9;
   margin-bottom: 30px;
   background-position: center;
+
 }
 
 #content{
-  background-color: rgba(11, 7, 7, 0.3);
   position: relative;
-  padding-top: 30vh;
+  padding-top: 40vh;
   padding-left: 20px;
   text-align: left;
   font-weight: bold;
   color: rgb(243, 237, 237);
-  font-family: Noto Sans KR,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  width:40%;
 }
 
 #genrename{
-  display: inline;
-  text-align: left;
+  display: flex;
+  color: rgb(243, 237, 237);
+  gap: 10px;
+  /* margin-left: 20px; */
+  margin-bottom: 20%;
+
+  
 }
 
 .overviewcontaioner{
@@ -150,7 +159,10 @@ export default {
 #backdrop {
   height: 700px;
   background-size: cover;
+  text-overflow: ellipsis;
 }
+
+
 
 
 

@@ -19,7 +19,6 @@
         <p>
             <input type="submit" value="logIn" class="login_btn">
         </p>
-        
     </form>
     <hr>
     <p class="find">
