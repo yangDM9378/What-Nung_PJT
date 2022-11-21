@@ -33,6 +33,7 @@ export default {
         }
       })
         .then((res) => {
+          console.log(res)
           this.mydata=res.data
         })
         .catch((err) => {
@@ -45,23 +46,6 @@ export default {
   }
 }
 
-
-// myMovie(context, movie_id) {
-//   console.log(`Token ${context.state.token}`)
-//   console.log(`${API_URL}/auth/${movie_id}/movie/`)
-//   axios({
-//     method:'post',
-//     url: `${API_URL}/auth/${movie_id}/movie`,
-//     headers: {
-//       Authorization: `Token ${context.state.token}`
-//     }
-//   })
-//   .then((res) => {
-//     console.log(res)
-//   })
-//   .catch((err) => {
-//     console.log(err)
-//   })
 </script>
 
 <style>

@@ -9,8 +9,8 @@
       <div class="row"
       id="content">
         <h1>{{this.movie?.title}}</h1>
-         <!-- <button @click="myMovie">내가 너 찜했다!</button> -->
-        <button>내가 너 찜했다!</button>
+         <button @click="myMovie">내가 너 찜했다!</button>
+        <!-- <button>내가 너 찜했다!</button> -->
 
          <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
          <h3>줄거리 | {{ this.movie?.overview.substr(0,150) }}...</h3>
@@ -26,9 +26,12 @@
       </div>
     </div>
     <div class="row">
+      <div class="column"
+      id="comment">
       <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
       <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
       <router-view></router-view>
+      </div>
     </div>
   </div>
   <!-- <div>
@@ -162,8 +165,10 @@ export default {
   text-overflow: ellipsis;
 }
 
+#comment{
+  text-align: left;
 
-
+}
 
 
 </style>
