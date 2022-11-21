@@ -1,3 +1,4 @@
+from rest_framework.response import Response
 from .serializers import MymovieSerializer
 from rest_framework.decorators import api_view
 from rest_framework import status
@@ -12,11 +13,13 @@ from rest_framework.permissions import IsAuthenticated
 def like_movie(request, movie_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
     user = request.user
-    if movie in user.like_movies.all():
+    if user.like_movies.filter(pk=movie_pk).exists():
         user.like_movies.remove(movie)
+        like=False
     else:
         user.like_movies.add(movie)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        like=True
+    return Response(like)
 
 @api_view(['GET'])
 def mymovie(request):

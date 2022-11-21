@@ -82,11 +82,11 @@ export default {
       if ( this.$store.state.movie.id === Number(id)) {
         this.movie = this.$store.state.movie
       }
-    }
-  },
-    // myMovie() {
-    //   this.$store.dispatch('myMovie', this.movie)
-    // },
+    },
+    myMovie() {
+      this.$store.dispatch('myMovie', this.$route.params.id)
+    },
+  },  
   created() {
     this.getMovieById()
   }
