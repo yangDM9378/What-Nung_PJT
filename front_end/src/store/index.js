@@ -18,7 +18,8 @@ export default new Vuex.Store({
     movie:{},
     token:null,
     genres_movie:null,
-    comment:[]
+    comment:[],
+    nickname:null,
   },
   getters: {
     // 로그인
@@ -48,7 +49,11 @@ export default new Vuex.Store({
     },
     LOGOUT(state) {
       state.token = null
+      state.nickname = null
       router.push({ name: 'LogInView' })
+    },
+    GETME(state, res) {
+      state.nickname = res.data.nick_name
     }
   },
   actions: {
@@ -114,6 +119,7 @@ export default new Vuex.Store({
         .then((res) => {
           console.log(res)
           context.commit('LOGIN_TOKEN', res.data.key)
+          context.dispatch('getMe', res.data.key)
         })
     },
     logOut(context) {
@@ -122,10 +128,30 @@ export default new Vuex.Store({
         url: `${API_URL}/accounts/logout/`
       })
       .then((res) => {
-        console.log(res.detail)
+        console.log(res)
         context.commit('LOGOUT')
       })
-    }
+    },
+    getMe(context, key) {
+      axios({
+        method:'get',
+        url: `${API_URL}/accounts/user/`,
+        headers: {
+          Authorization: `Token ${key}`
+        }
+      })
+      .then((res) => {
+        console.log(res)
+        context.commit('GETME', res)
+      })
+    },
+    // myMovie(context,movie) {
+      
+      // axios({
+      //   method:'post',
+      //   url: `${API_URL}/mymovie/`
+      // })
+    // }
 
   },
   modules: {

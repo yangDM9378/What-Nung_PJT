@@ -27,3 +27,4 @@ class Credit(models.Model):
 class Comment(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     comment = models.TextField()
+    nickname = models.TextField()

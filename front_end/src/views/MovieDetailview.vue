@@ -5,7 +5,7 @@
     <div class="content">
       <div>
         <h1>{{this.movie?.title}}</h1>
-        <button>내가 너 찜했다!</button>
+        <!-- <button @click="myMovie">내가 너 찜했다!</button> -->
       </div>
       <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
       <div class="overviewcontaioner">
@@ -66,6 +66,9 @@ export default {
       }
     }
   },
+    // myMovie() {
+    //   this.$store.dispatch('myMovie', this.movie)
+    // },
   created() {
     this.getMovieById()
   }

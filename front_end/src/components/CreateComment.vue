@@ -19,10 +19,16 @@ export default {
       comment: null
     }
   },
+  computed: {
+    nickname() {
+      return this.$store.state.nickname
+    }
+  },
   methods: {
     createComment() {
       const comment = this.comment
       const movie_id = this.$route.params.id
+      const nickname = this.nickname
       if (!comment) {
         alert('내용을 입력하시오')
         return
@@ -33,6 +39,7 @@ export default {
         data: {
           movie_id: movie_id,
           comment: comment,
+          nickname: nickname
         },
       })
         .then((res) => {
