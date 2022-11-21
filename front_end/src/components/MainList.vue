@@ -56,7 +56,7 @@ export default {
       return arr_sample
     },
     url(){
-      const url = 'https://image.tmdb.org/t/p/w500'
+      const url = 'https://image.tmdb.org/t/p/original'
       return url
     },
     getactActiveIdx(){

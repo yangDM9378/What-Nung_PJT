@@ -22,6 +22,7 @@
   </div>
 </template>
 
+
 <script>
 export default {
   name: 'NaviBar',
@@ -38,12 +39,13 @@ export default {
 }
 </script>
 
+
 <style>
 
 
 a {
   text-decoration: none;
-  
+
 }
 
 .logout_btn {
@@ -68,3 +70,4 @@ a {
     text-decoration: none;
 }
 </style>
+
