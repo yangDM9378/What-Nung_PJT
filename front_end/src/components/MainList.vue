@@ -24,7 +24,6 @@
         </b-carousel>
       </div>
     </div >
-    <h1 >h1</h1>
     <h1>전체 영화</h1>
       <div class="items">
         <MainListItem
