@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div col-lg-2 col-md-4 col-sm-6>
 
     <div class="conddtainer">
       <div>
@@ -22,12 +22,12 @@
       </div>
     </div >
     <h1>전체 영화</h1>
-      <div class="items">
+      <div class="row">
         <MainListItem
         v-for="movie in movies"  
         :key="movie.id"
         :movie="movie"
-        />
+        class="items col-lg-2 col-md-4 col-sm-6"/>
       </div>
     </div>
 
@@ -85,7 +85,7 @@ export default {
 }
 .items{
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(6,1fr);
 }
 
 </style>

@@ -3,7 +3,7 @@
   <div >
     <div class="row"
     id="backdrop"
-    :style="{backgroundImage: `linear-gradient(to top, rgb(0, 0, 0) 2%, rgba(0, 0, 0, 0) 50%), linear-gradient(to right, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.1) 100%), url('${ImgSrc}')`}"
+    :style="{backgroundImage: `linear-gradient(to top, rgb(0, 0, 0) 2%, rgba(0, 0, 0, 0) 50%), linear-gradient(to right, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.1) 100%), url('${ImgSrc}')`}"
     >
       <div class="row"
       id="content">
@@ -91,7 +91,7 @@ export default {
   text-align: left;
   font-weight: bold;
   color: rgb(243, 237, 237);
-  width:40%;
+  width:30%;
   row-gap: 5px;
 }
 
@@ -109,7 +109,7 @@ export default {
   background-size: cover;
   text-overflow: ellipsis;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center 20%;
 }
 
 #comment{

@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="acontainer">
-      <nav>
+      <header>
+      </header>
+      <nav id="navbar">
         <div class="link1" style="text-decoration:none;">
           <router-link :to="{ name: 'AllGenreView' }">전체</router-link>
           <router-link :to="{ name: 'GenreView', params:{ genre: '드라마' }}">드라마</router-link>
@@ -37,13 +39,37 @@ export default {
     }
   }
 }
+
+// const navbar = document.querySelector('#navbar')
+// const navbarHeignt = navbar.getBoundingClientRect().height;
+
+// docu
 </script>
 
 
 <style>
 
+#navbar {
+  display: flex;
+  opacity: 0.6;
+  position: fixed;
+  /* background: #000001; */
+  right: 0;
+  left: 0;
+  width: 100%;
+  /* padding: 3px; */
+  display: table;
+  margin: 0 auto;
+  z-index:1;
+  transition: all 300ms ease-in-out;
+}
 
-a {
+
+#navbar.navbar--dark {
+  background-color: #141414;
+}
+
+nav a {
   text-decoration: none;
 
 }
@@ -54,20 +80,21 @@ a {
     font-size: 30px;
     font-weight: bold;
     color: #e8e8ee;
-    text-decoration: underline;
+    text-decoration: none;
     background-color:transparent;
 }
 .link1{
   float: left;
   display: inline-block;
   font-size: 20px;
+  cursor: pointer;
 
 }
 .link2{
   text-align: right;
-    display: inline-block;
-    font-size: 20px;
-    text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
 }
 </style>
 
