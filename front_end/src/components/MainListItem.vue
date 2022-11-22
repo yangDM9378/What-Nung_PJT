@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div  >
     <img class="card" style="width: 18rem; height: 30rem; margin-bottom: 8px;" :src="ImgSrc" img-top @click="goDetail(movie.id)">
   </div>
 
@@ -32,6 +32,7 @@ export default {
 
 .card:hover{
   transform: scale(1.2);
+  z-index: 1;
 }
 .card{
   transition: transform .5s;

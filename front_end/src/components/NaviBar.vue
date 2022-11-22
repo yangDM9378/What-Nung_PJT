@@ -1,8 +1,6 @@
 <template>
   <div>
     <div class="acontainer">
-      <header>
-      </header>
       <nav id="navbar">
         <div class="link1" style="text-decoration:none;">
           <router-link :to="{ name: 'AllGenreView' }">전체</router-link>
@@ -40,10 +38,7 @@ export default {
   }
 }
 
-// const navbar = document.querySelector('#navbar')
-// const navbarHeignt = navbar.getBoundingClientRect().height;
 
-// docu
 </script>
 
 
@@ -53,7 +48,7 @@ export default {
   display: flex;
   opacity: 0.6;
   position: fixed;
-  /* background: #000001; */
+  background: #000001;
   right: 0;
   left: 0;
   width: 100%;
@@ -64,10 +59,9 @@ export default {
   transition: all 300ms ease-in-out;
 }
 
-
-#navbar.navbar--dark {
-  background-color: #141414;
-}
+/* #navbar.navbar--dark {
+  background-color: #4d4d4d;
+}  */
 
 nav a {
   text-decoration: none;

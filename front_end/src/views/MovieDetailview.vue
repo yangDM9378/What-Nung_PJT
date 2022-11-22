@@ -19,14 +19,15 @@
             :key="index">{{ genre.name }}</p>
           </div>
          </div>
+        </div> 
         <div class="row">
-          <div class="column" id="comment">
+          <div id="routerbox">
             <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
             <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
             <router-view></router-view>
           </div>
         </div>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -65,6 +66,7 @@ export default {
     }, 
   },
   created() {
+    window.scrollTo(0,0)
     this.getMovieById()
   }
 }
@@ -112,11 +114,15 @@ export default {
   background-position: center 20%;
 }
 
-#comment{
+#routerbox{
   text-align: left;
-  padding-bottom: 500px;
-
+  margin-left: 30px;
+ 
+;
 }
+  /* padding-bottom: 500px; */
+  /* width: 100%; */
+
 
 
 </style>

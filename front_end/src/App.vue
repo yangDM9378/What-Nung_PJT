@@ -26,20 +26,8 @@ export default {
   color: #2c3e50;
 }
 
-nav {
-  display: flex;
-  opacity: 0.6;
-  position: fixed;
-  background: #000001;
-  right: 0;
-  left: 0;
-  width: 100%;
-  /* padding: 3px; */
-  display: table;
-  margin: 0 auto;
-  z-index:1;
-  transition: all 300ms ease-in-out;
-}
+
+
 
 .acontainer{
   line-height: 55px;

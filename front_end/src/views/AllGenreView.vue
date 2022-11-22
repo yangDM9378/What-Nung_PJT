@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>전체장르야 나는</h1>
     <div  class="items">
       <AllGenreListItem
       v-for="movie in movies"
