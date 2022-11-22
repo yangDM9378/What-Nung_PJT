@@ -12,26 +12,25 @@
          <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
          <h4>줄거리 | {{ this.movie?.overview.substr(0,100) }}...</h4>
          <div clas="row">
-        <div class="column"
-        id="genrename">
-          <p>장르 | </p>
-          <p v-for="(genre,index) in this.movie?.genres"
-          :key="index">{{ genre.name }}</p>
+          <div class="column"
+          id="genrename">
+            <p>장르 | </p>
+            <p v-for="(genre,index) in this.movie?.genres"
+            :key="index">{{ genre.name }}</p>
+          </div>
+         </div>
+        <div class="row">
+          <div class="column" id="comment">
+            <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
+            <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
+            <router-view></router-view>
+          </div>
         </div>
-      </div>
-      <div class="row">
-      <div class="column"
-      id="comment">
-    </div>
-    <div class="row">
-      <div class="column" id="comment">
-      <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
-      <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
-      <router-view></router-view>
       </div>
     </div>
   </div>
 </div>
+
 
 </template>
 <script> 
