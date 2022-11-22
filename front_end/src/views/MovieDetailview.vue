@@ -9,7 +9,12 @@
       <div class="row"
       id="content">
         <h1>{{this.movie?.title}}</h1>
-        <button @click="myMovie">찜했누</button>
+        <div v-if="ismymoive">
+          <button @click="myMovie">찜했누</button>
+        </div>
+        <div v-if="!ismymoive">
+          <button @click="myMovie">이미 찜했누</button>
+        </div>
          <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
          <h3>줄거리 | {{ this.movie?.overview.substr(0,150) }}...</h3>
          <div clas="row">
@@ -30,6 +35,7 @@
       <router-view></router-view>
       </div>
     </div>
+  </div>
 </div>
 
 </template>
