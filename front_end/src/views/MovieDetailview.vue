@@ -9,7 +9,6 @@
       id="content">
         <h1>{{this.movie?.title}}</h1>
          <button style="width: 20%" @click="myMovie">찜콩!</button>
-        <!-- <button>내가 너 찜했다!</button> -->
 
          <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
          <h4>줄거리 | {{ this.movie?.overview.substr(0,100) }}...</h4>
@@ -24,41 +23,17 @@
       <div class="row">
       <div class="column"
       id="comment">
+    </div>
+    <div class="row">
+      <div class="column" id="comment">
       <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
       <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
       <router-view></router-view>
       </div>
     </div>
-      </div>
-    </div>
-    
   </div>
-  <!-- <div>
-    <div class="back" :style="{backgroundImage:  `url('${ImgSrc}')`}" >
-    <div class="content">
-      <h1>{{this.movie?.title}}</h1> -->
-      <!-- <button @click="myMovie">내가 너 찜했다!</button> -->
-      <!-- <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
-       <h3 class="overview col-5">줄거리 | {{ this.movie?.overview.substr(0,150) }}...</h3>
-      <div class="gencontainer">
-        <p>장르 | </p>
-        <p v-for="(genre,index) in this.movie?.genres"
-        :key="index">{{ genre.name }}</p>
-      </div>
-    </div>
-  </div>
-  <div
-  style="float:left; margin-top:90vh;"
-  >
-    <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
-    <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
-    <router-view></router-view>
-  </div>
-</div> -->
 </div>
-   
-    
- 
+
 </template>
 <script> 
 export default {
@@ -68,14 +43,16 @@ export default {
       movie: null,
     }
   },
-
   computed: {
     moviedetail() {
       return this.$store.state.movie
     },
-    ImgSrc(){
+    ImgSrc() {
       const url = 'https://image.tmdb.org/t/p/original'
       return url+this.movie.backdrop_path
+    },
+    ismymoive() {
+      return this.$store.state.ismymoive
     }
   },
   methods: {
@@ -87,8 +64,8 @@ export default {
     },
     myMovie() {
       this.$store.dispatch('myMovie', this.$route.params.id)
-    },
-  },  
+    }, 
+  },
   created() {
     this.getMovieById()
   }

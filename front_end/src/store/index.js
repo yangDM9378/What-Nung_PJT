@@ -20,6 +20,7 @@ export default new Vuex.Store({
     genres_movie:null,
     comment:[],
     nickname:null,
+    ismymoive:false,
   },
   getters: {
     // 로그인
@@ -34,7 +35,6 @@ export default new Vuex.Store({
     CLICK_MOVIE(state, movie) {
       state.movie = movie
     },
-
     GETCOMMENT(state, comment) {
       state.comment = comment
     },
@@ -53,7 +53,11 @@ export default new Vuex.Store({
       router.push({ name: 'LogInView' })
     },
     GETME(state, res) {
+      console.log(res.data)
       state.nickname = res.data.nick_name
+    },
+    MYMOVIE(state, tf) {
+      state.ismymoive=tf
     }
   },
   actions: {
@@ -87,7 +91,6 @@ export default new Vuex.Store({
       })
     },
     
-
     // 유저정보
     signUp(context, payload) {
       axios({
@@ -146,8 +149,6 @@ export default new Vuex.Store({
       })
     },
     myMovie(context, movie_id) {
-      console.log(`Token ${context.state.token}`)
-      console.log(`${API_URL}/auth/${movie_id}/movie/`)
       axios({
         method:'post',
         url: `${API_URL}/auth/${movie_id}/movie`,
@@ -156,13 +157,12 @@ export default new Vuex.Store({
         }
       })
       .then((res) => {
-        console.log(res)
+        context.commit('MYMOVIE', res.data)
       })
       .catch((err) => {
         console.log(err)
       })
     }
-
   },
   modules: {
   }

@@ -3,26 +3,29 @@
     <div id="login">
     <div id="login_form">
     <form @submit.prevent="logIn">
-        <h3 class="login" style="letter-spacing:-1px;">로그인 해줘!</h3>
-        <hr>
-        <label for="username">
-        <p style="text-align: left; font-size:12px; color:#666">Username</p>
-        <input type="text" id="username" v-model="username" placeholder="너의 아이디는?" class="size">
-        <p></p>
-        </label>
-
-        <label for="password">
-        <p style="text-align: left; font-size:12px; color:#666">Password </p>
-        <input type="password" id="password" v-model="password" placeholder="너의 비번은?" class="size">
-        </label>
-        <p></p>
-        <p>
-            <input type="submit" value="logIn" class="login_btn">
-        </p>
+      <h3 class="login" style="letter-spacing:-1px;">로그인 해줘!</h3>
+      <hr>
+    <div>
+      <label for="username">
+      <p style="text-align: left; font-size:12px; color:#666">Username</p>
+      <input type="text" id="username" v-model="username" placeholder="너의 아이디는?" class="size">
+      </label>
+      <p></p>
+    </div>
+    <div>
+      <label for="password">
+      <p style="text-align: left; font-size:12px; color:#666">Password </p>
+      <input type="password" id="password" v-model="password" placeholder="너의 비번은?" class="size">
+      </label>
+      <p></p>
+    </div>
+      <p>
+      <input type="submit" value="logIn" class="login_btn">
+      </p>
     </form>
     <hr>
     <p class="find">
-        <span><a href="signin.html" >회원가입하실?</a></span>
+        <span><a href="signup" >회원가입하실?</a></span>
     </p>
     <!-- <p class="find">
         <span><a href="">아이디 찾기</a></span>

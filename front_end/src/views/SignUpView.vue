@@ -10,16 +10,18 @@
           <input type="text" id="username" v-model="username" placeholder="아이디" class="size">
         </label>
         <p></p>
-
+        <div>
         <label for="password1">
           <p style="text-align: left; font-size:12px; color:#666">Password </p>
           <input type="password" id="password1" v-model="password1" placeholder="비밀번호" class="size">
         </label>
+        </div>
+        <div>
         <label for="password2">
           <p style="text-align: left; font-size:12px; color:#666"> </p>
           <input type="password" id="password2" v-model="password2" placeholder="비밀번호 확인" class="size">
         </label>
-
+        </div>
         <p></p>
         <label for="nick_name">
           <p style="text-align: left; font-size:12px; color:#666">NickName</p>

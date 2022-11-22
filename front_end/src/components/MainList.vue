@@ -7,9 +7,6 @@
           id="carousel-1"
           v-model="slide"
           :interval="4000"
-          controls
-          label-next = ''
-          label-prev=''
           indicators
           background="#ababab"
           img-width="1024"
