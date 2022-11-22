@@ -1,5 +1,5 @@
 <template>
-  <div  >
+  <div>
     <img class="card" style="width: 18rem; height: 30rem; margin-bottom: 8px;" :src="ImgSrc" img-top @click="goDetail(movie.id)">
   </div>
 
@@ -17,12 +17,17 @@ export default {
     ImgSrc(){
       const urls = 'https://image.tmdb.org/t/p/w500'
       return urls+this.movie.poster_path
-    }
+    },
+
   },
   methods: {
     goDetail(id) {
       this.$router.push({ name:'detail', params:{id} })
-      return this.$store.dispatch('clickMovie',this.movie)
+      this.$store.dispatch('clickMovie',this.movie)
+      this.$store.state.ourmovie.push(this.movie.id)
+      if (!this.$store.state.myclick.includes(this.movie.id)) {
+        this.$store.state.myclick.push(this.movie.id)
+      }
     }
   }
 }

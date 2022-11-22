@@ -36,4 +36,3 @@ def mymovie(request):
     data=user.like_movies.all()
     serializer = MymovieSerializer(data, many=True)
     return Response(serializer.data)
-

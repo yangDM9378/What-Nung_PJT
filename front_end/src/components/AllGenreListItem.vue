@@ -19,7 +19,11 @@ export default {
   methods: {
     goDetail(id) {
       this.$router.push({ name:'detail', params:{ id } })
-      return this.$store.dispatch('clickMovie',this.movie)
+      this.$store.dispatch('clickMovie',this.movie)
+      this.$store.state.ourmovie.push(this.movie.id)
+      if (!this.$store.state.myclick.includes(this.movie.id)) {
+        this.$store.state.myclick.push(this.movie.id)
+      }
     }
   }
 }

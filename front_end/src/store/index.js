@@ -21,12 +21,36 @@ export default new Vuex.Store({
     comment:[],
     nickname:null,
     ismymoive:null,
+    ourmovie:[],
+    myclick:[]
   },
   getters: {
     // 로그인
     isLogin(state) {
       return state.token ? true : false
+    },
+    ourmovie(state) {
+      const oc = {}
+      for (const v of state.ourmovie) {
+        oc[v] = oc[v] ? oc[v] + 1 : 1
+      }
+      const sortable = [];
+      for (const name in oc) {
+        sortable.push([name, oc[name]]);
+      }
+
+      sortable.sort(function(a, b) {
+        return b[1] - a[1] ;
+      })
+      const fin=[]
+      for (const i of sortable)
+        fin.push(i[0])
+      return fin
+    },
+    myclick(state) {
+      return state.myclick
     }
+    
   },
   mutations: {
     GET_MAIN(state, movies) {
@@ -45,15 +69,16 @@ export default new Vuex.Store({
     },
     LOGIN_TOKEN(state, token) {
       state.token = token
+      state.myclick=[]
       router.push({ name: 'MainView' })
     },
     LOGOUT(state) {
       state.token = null
       state.nickname = null
+      state.myclick=[]
       router.push({ name: 'LogInView' })
     },
     GETME(state, res) {
-      console.log(res.data)
       state.nickname = res.data.nick_name
     },
     MYMOVIE(state, tf) {
@@ -67,7 +92,6 @@ export default new Vuex.Store({
         url: `${API_URL}/backend/main/`,
       })
       .then((res) => {
-        // console.log(res.data)
         context.commit('GET_MAIN',res.data)
         
       })
