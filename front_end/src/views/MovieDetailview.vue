@@ -8,7 +8,8 @@
       <div class="row"
       id="content">
         <h1>{{this.movie?.title}}</h1>
-         <button style="width: 20%" @click="myMovie">찜콩!</button>
+        <button v-if="!ismymoive" style="width: 20%" @click="myMovie">찜콩!</button>
+        <button v-if="ismymoive" style="width: 20%" @click="myMovie">찜했누!</button>
          <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
          <h4>줄거리 | {{ this.movie?.overview.substr(0,100) }}...</h4>
          <div clas="row">
@@ -34,14 +35,20 @@
 
 </template>
 <script> 
+import axios from 'axios'
+const API_URL = 'http://127.0.0.1:8000'
 export default {
   name:'MovieDetailview',
   data (){
     return {
       movie: null,
+      tf: null,
     }
   },
   computed: {
+    token() {
+      return this.$store.state.token
+    },
     moviedetail() {
       return this.$store.state.movie
     },
@@ -49,9 +56,14 @@ export default {
       const url = 'https://image.tmdb.org/t/p/original'
       return url+this.movie.backdrop_path
     },
-    ismymoive() {
-      return this.$store.state.ismymoive
-    }
+    ismymoive: {
+      get() {
+        return this.$store.state.ismymoive
+      },
+      set(data) {
+        this.$store.state.ismymoive = data
+      }
+    },
   },
   methods: {
     getMovieById() {
@@ -63,9 +75,27 @@ export default {
     myMovie() {
       this.$store.dispatch('myMovie', this.$route.params.id)
     }, 
+    myisMovie() {
+      axios({
+        method:'get',
+        url: `${API_URL}/auth/${this.$route.params.id}/movie`,
+        headers: {
+          Authorization: `Token ${this.token}`
+        }
+      })
+      .then((res) => {
+        this.ismymoive=res.data
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
   },
   created() {
     this.getMovieById()
+    if (this.token) {
+      this.myisMovie()
+    }
   }
 }
 </script>
@@ -77,11 +107,6 @@ export default {
 .container{
   margin: 0px;
 }
-
-
-
-
-
 
 
 #content{

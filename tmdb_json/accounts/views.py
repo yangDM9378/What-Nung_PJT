@@ -9,17 +9,26 @@ from .models import User
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 
-@api_view(['POST'])
+@api_view(['POST','GET'])
 def like_movie(request, movie_pk):
-    movie = get_object_or_404(Movie, pk=movie_pk)
-    user = request.user
-    if user.like_movies.filter(pk=movie_pk).exists():
-        user.like_movies.remove(movie)
-        like=False
-    else:
-        user.like_movies.add(movie)
-        like=True
-    return Response(like)
+    if request.method == 'POST':
+        movie = get_object_or_404(Movie, pk=movie_pk)
+        user = request.user
+        if user.like_movies.filter(pk=movie_pk).exists():
+            user.like_movies.remove(movie)
+            like=False
+        else:
+            user.like_movies.add(movie)
+            like=True
+        return Response(like)
+    if request.method == 'GET':
+        movie = get_object_or_404(Movie, pk=movie_pk)
+        user = request.user
+        if user.like_movies.filter(pk=movie_pk).exists():
+            like=True
+        else:
+            like=False
+        return Response(like)
 
 @api_view(['GET'])
 def mymovie(request):
