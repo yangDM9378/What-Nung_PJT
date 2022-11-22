@@ -20,7 +20,7 @@ export default new Vuex.Store({
     genres_movie:null,
     comment:[],
     nickname:null,
-    ismymoive:false,
+    ismymoive:null,
   },
   getters: {
     // 로그인
