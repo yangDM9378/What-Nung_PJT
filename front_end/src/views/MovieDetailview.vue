@@ -9,7 +9,6 @@
       id="content">
         <h1>{{this.movie?.title}}</h1>
          <button style="width: 20%" @click="myMovie">찜콩!</button>
-
          <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
          <h4>줄거리 | {{ this.movie?.overview.substr(0,100) }}...</h4>
          <div clas="row">
