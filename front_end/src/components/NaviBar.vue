@@ -53,7 +53,7 @@ a {
     justify-content: center;
     font-size: 30px;
     font-weight: bold;
-    color: #5656df;
+    color: #e8e8ee;
     text-decoration: underline;
     background-color:transparent;
 }
