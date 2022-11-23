@@ -2,7 +2,7 @@
   <div col-lg-2 col-md-4 col-sm-6>
 
     <div class="conddtainer">
-      <div>
+      <div mb-3>
         <b-carousel
           id="carousel-1"
           v-model="slide"
@@ -22,7 +22,7 @@
       </div>
     </div >
     <h1>전체 영화</h1>
-      <div class="row">
+    <div class="row">
         <MainListItem
         v-for="movie in movies"  
         :key="movie.id"
@@ -87,5 +87,6 @@ export default {
   display: grid;
   grid-template-columns: repeat(6,1fr);
 }
+
 
 </style>

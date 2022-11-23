@@ -1,11 +1,15 @@
 <template>
-  <div>
-    <h1>커맨트</h1>
-    <CommentListItem
+  <div class="reviewbox mt-3">
+    <div class="create">
+      <CreateComment />
+    </div>
+    <div class="commentbox ">
+    <CommentListItem 
     v-for='comment in comments'
     :key="comment.id"
-    :comment='comment'/>
-    <CreateComment/>
+    :comment='comment'
+    />
+  </div>
 
   </div>
 </template>
@@ -46,5 +50,22 @@ export default {
 </script>
 
 <style>
+.reviewbox {
+  display: flex;
+  justify-content: space-between;
+  
+}
+.createbox {
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  
 
+}
+.commentbox{
+  display: flex;
+  flex-direction: column;
+  width:60%;
+  
+}
 </style>
