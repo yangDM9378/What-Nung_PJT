@@ -50,3 +50,10 @@ def comment_create(request, movie_pk):
     if serializer.is_valid(raise_exception=True):
         serializer.save(movie=movie)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['POST'])
+def cnt(request, movie_pk):
+    movie = get_object_or_404(Movie, pk=movie_pk)
+    movie.click+=1
+    movie.save()
+    return Response(movie.click)

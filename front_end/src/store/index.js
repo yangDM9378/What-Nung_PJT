@@ -21,7 +21,6 @@ export default new Vuex.Store({
     comment:[],
     nickname:null,
     ismymoive:null,
-    ourmovie:[],
     myclick:[]
   },
   getters: {
@@ -29,28 +28,9 @@ export default new Vuex.Store({
     isLogin(state) {
       return state.token ? true : false
     },
-    ourmovie(state) {
-      const oc = {}
-      for (const v of state.ourmovie) {
-        oc[v] = oc[v] ? oc[v] + 1 : 1
-      }
-      const sortable = [];
-      for (const name in oc) {
-        sortable.push([name, oc[name]]);
-      }
-
-      sortable.sort(function(a, b) {
-        return b[1] - a[1] ;
-      })
-      const fin=[]
-      for (const i of sortable)
-        fin.push(i[0])
-      return fin
-    },
     myclick(state) {
       return state.myclick
     }
-    
   },
   mutations: {
     GET_MAIN(state, movies) {
@@ -182,6 +162,18 @@ export default new Vuex.Store({
       })
       .then((res) => {
         context.commit('MYMOVIE', res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    },
+    ourclick(context, id) {
+      axios({
+        method:'post',
+        url: `${API_URL}/backend/movies/${id}/cnt/`,
+      })
+      .then((res) => {
+        console.log(res)
       })
       .catch((err) => {
         console.log(err)

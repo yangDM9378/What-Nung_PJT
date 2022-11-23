@@ -2,9 +2,8 @@
   <div>
     <h1>내페이지</h1>
     <div
-    v-for='(algomovie, index) in algo'
-    :key="index" 
-    >{{ algomovie.title }} {{ algomovie.poster_path }}</div>
+    v-for="sm in sortmovie" 
+    :key="sm.pk">{{ sm.title }}</div>
     <hr>
     
     <div
@@ -18,23 +17,18 @@
 
 <script>
 import axios from 'axios'
-
 export default {
   name: 'MyPageView',
   data() {
     return {
       mydatas:null,
-      almovie:[],
-      algo: []
+      sortmovie:null
     }
   },
   computed: {
-    ourmovie() {
-      return this.$store.getters.ourmovie
-    },
     myclick() {
       return this.$store.getters.myclick
-    }
+    },
   },
   methods: {
     getmypage() {
@@ -54,27 +48,15 @@ export default {
           console.log(err)
         })
     },
-    algorithm() {
-      for (let i of this.ourmovie) {
-        if (!this.myclick.includes(Number(i))) {
-          this.almovie.push(Number(i))
-          if (this.almovie.length === 5){
-            break
-          }
-        }
-      }  
-      for (let al of this.almovie) {
-        for (let mo of this.$store.state.movies) {
-          if (mo.id == al) {
-            this.algo.push(mo)
-          }
-        }
-      }
+    sortarr() {
+      this.sortmovie=this.$store.state.movies.sort(function(a,b) {
+        return b.click - a.click
+      }).slice(0,5)
     }
   },
   created() {
     this.getmypage()
-    this.algorithm()
+    this.sortarr()
   }
 }
 

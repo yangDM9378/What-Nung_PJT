@@ -7,4 +7,5 @@ urlpatterns = [
     path('comments/', views.comment_list),
     path('comments/<int:comment_pk>/', views.comment_detail),
     path('moives/<int:movie_pk>/comments/', views.comment_create),
+    path('movies/<int:movie_pk>/cnt/', views.cnt),
 ]

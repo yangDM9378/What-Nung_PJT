@@ -13,7 +13,7 @@
           <router-link :to="{ name: 'MainView' }">Main</router-link>
           <router-link v-if="!isLogin" :to="{ name: 'SignUpView'}">회원가입</router-link> 
           <router-link v-if="!isLogin" :to="{ name: 'LogInView' }">로그인</router-link> 
-          <router-link v-if="isLogin" :to="{ name: 'MyPageView' }">Me</router-link> 
+          <router-link v-if="isLogin" :to="{ name: 'MyPageView' }">{{ nickname }}</router-link> 
           <router-link v-if="isLogin" :to="{ name: 'MainView'}">
             <button class="logout_btn" @click="logOut">로그아웃</button>
           </router-link>
@@ -30,12 +30,15 @@ export default {
   computed: {
     isLogin() {
       return this.$store.getters.isLogin
+    },
+    nickname() {
+      return this.$store.state.nickname
     }
   },
   methods: {
     logOut() {
       this.$store.dispatch('logOut')
-    }
+    },
   }
 }
 

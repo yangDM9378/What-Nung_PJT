@@ -17,6 +17,7 @@ class Movie(models.Model):
     backdrop_path = models.TextField(null=True)
     genres = models.ManyToManyField(Genre)
     movie_id = models.IntegerField()
+    click = models.IntegerField()
 
 class Credit(models.Model):
     credit_id = models.ForeignKey(Movie, on_delete=models.CASCADE)

@@ -11,6 +11,7 @@ def get_movie_datas():
 
         for movie in movies['results']:
             if movie['adult'] == True: continue
+
             if movie.get('release_date', ''):
                 fields = {
                     'movie_id': movie['id'],
@@ -21,7 +22,8 @@ def get_movie_datas():
                     'overview': movie['overview'],
                     'poster_path': movie['poster_path'],
                     'genres': movie['genre_ids'],
-                    'backdrop_path': movie['backdrop_path']
+                    'backdrop_path': movie['backdrop_path'],
+                    'click' : 0
                 }
 
                 data = {
