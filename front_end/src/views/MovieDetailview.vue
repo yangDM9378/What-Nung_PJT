@@ -8,8 +8,8 @@
       <div class="row"
       id="content">
         <h1>{{this.movie?.title}}</h1>
-        <button v-if="!ismymoive" style="width: 20%" @click="myMovie">찜할거눙?</button>
-        <button v-if="ismymoive" style="width: 20%;" @click="myMovie" >찜했눙!</button>
+        <button v-if="!ismymoive" style="width: 20%; background-color: white; border: 2px solid #555555;" @click="myMovie ">원하눙?</button>
+        <button v-if="ismymoive" style="width: 20%; background-color:#555555;" @click="myMovie" >찜했눙!</button>
          <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
          <h4>줄거리 | {{ this.movie?.overview.substr(0,100) }}...</h4>
          <div clas="row">
@@ -24,8 +24,8 @@
         <hr>
         <div class="row">
           <div id="routerbox">
-            <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }">상세정보</router-link>|
-            <router-link :to="{ name: 'CommentList' }">리뷰</router-link>
+            <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }" style="margin-right:10px">상세정보</router-link> |
+            <router-link :to="{ name: 'CommentList' }" style="margin-left:10px">리뷰</router-link>
             <router-view></router-view>
           </div>
         </div>

@@ -56,7 +56,6 @@ export default {
   right: 0;
   left: 0;
   width: 100%;
-  /* padding: 3px; */
   display: table;
   margin: 0 auto;
   z-index:2;
@@ -67,15 +66,16 @@ export default {
   background-color: #4d4d4d;
 }  */
 
-nav a {
+#navbar a {
   text-decoration: none;
+  font-size: 15px;
 
 }
 
 .logout_btn {
     margin-right: 20px;
     justify-content: center;
-    font-size: 30px;
+    font-size: 15px;
     font-weight: bold;
     color: #e8e8ee;
     text-decoration: none;

@@ -4,7 +4,7 @@
     <input type="text" id="comment" cols="30" rows="2" v-model="comment" placeholder="이 콘텐츠의 어떤 점이 좋았는지 싫었는지 어쩌구 다른 사람들에게 도움을 어쩌구 " style="color:white">
     </div>
   <div>
-    <input type="submit" id="submit" value="등록">
+    <input type="submit" id="submit" value="등록" style="width:100px">
   </div>
     </form>
  
@@ -66,6 +66,18 @@ export default {
   background-color:#1c1c1c;
 
 }
+
+#submit{
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+#submit:hover {
+  background-color:  #008CBA;
+  color:black;
+}
+
 
 
 </style>
