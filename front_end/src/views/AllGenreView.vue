@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <div  class="items">
+  <div style="margin-top: 80px">
+    <div class="row">
       <AllGenreListItem
       v-for="movie in movies"
       :key="movie.id"
       :movie="movie"
+      class="col-lg-2 col-md-4 col-sm-6"
       />
     </div>
-    <hr>
   </div>
 </template>
 
