@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <h1>나는 {{ this.$route.params.genre }}야 </h1>
-    <!-- v-for 로 내려서 하기 -->
-    <div class="items">
-    <GenreListItem 
+  <div style="margin-top: 80px">
+    <div class="row">
+      <GenreListItem 
       v-for="genre in genre_select"
       :key=genre.id
       :genre="genre"
-    />
+      class="col-lg-2 col-md-4 col-sm-6"
+      />
     </div>
     <hr>
   </div>

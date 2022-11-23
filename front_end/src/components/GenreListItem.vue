@@ -1,9 +1,8 @@
 <template>
   <div>
-    <b-card-group>
-      <b-card title= '' :img-src="ImgSrc" img-top @click="goDetail(genre.id)">
-      </b-card>
-    </b-card-group>
+    <div>
+      <img class="card" style="width: 18rem; height: 30rem; margin-bottom: 8px;" :src="ImgSrc" img-top @click="goDetail(genre.id)">
+    </div>
   </div>
 </template>
 

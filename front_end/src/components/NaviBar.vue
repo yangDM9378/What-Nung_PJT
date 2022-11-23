@@ -3,6 +3,7 @@
     <div class="acontainer">
       <nav id="navbar">
         <div class="link1" style="text-decoration:none;">
+          <router-link :to="{ name: 'MainView' }">Main</router-link>
           <router-link :to="{ name: 'AllGenreView' }">전체</router-link>
           <router-link :to="{ name: 'GenreView', params:{ genre: '드라마' }}">드라마</router-link>
           <router-link :to="{ name: 'GenreView', params:{ genre: '액션' }}">액션</router-link>
@@ -10,7 +11,6 @@
           <router-link :to="{ name: 'GenreView', params:{ genre: '애니메이션' }}">애니메이션</router-link>
           </div>
         <div class="link2">
-          <router-link :to="{ name: 'MainView' }">Main</router-link>
           <router-link v-if="!isLogin" :to="{ name: 'SignUpView'}">회원가입</router-link> 
           <router-link v-if="!isLogin" :to="{ name: 'LogInView' }">로그인</router-link> 
           <router-link v-if="isLogin" :to="{ name: 'MyPageView' }">{{ nickname }}</router-link> 

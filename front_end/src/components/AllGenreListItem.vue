@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-2 col-md-4 col-sm-6">
+  <div>
     <img class="card" style="width: 18rem; height: 30rem; margin-bottom: 8px;" :src="ImgSrc" img-top @click="goDetail(movie.id)">
   </div>
 </template>

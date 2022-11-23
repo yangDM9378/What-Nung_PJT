@@ -1,37 +1,31 @@
 <template>
-  <div col-lg-2 col-md-4 col-sm-6>
-
-    <div class="conddtainer">
-      <div mb-3>
-        <b-carousel
-          id="carousel-1"
-          v-model="slide"
-          :interval="4000"
-          indicators
-          background="#ababab"
-          img-width="1024"
-          img-height="480"
-          style="text-shadow: 1px 1px 2px #333;"
-          @sliding-start="onSlideStart"
-          @sliding-end="onSlideEnd"
-        > 
-          <b-carousel-slide :img-src="url+randommovie" v-for="(randommovie, index) in RandomMovies"
-          :key="index">
-          </b-carousel-slide>
-        </b-carousel>
-      </div>
-    </div >
+  <div>
+    <b-carousel
+      id="carousel-1"
+      v-model="slide"
+      :interval="4000"
+      indicators
+      background="#ababab"
+      img-width="1024"
+      img-height="480"
+      style="text-shadow: 1px 1px 2px #333;"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"
+    > 
+      <b-carousel-slide :img-src="url+randommovie" v-for="(randommovie, index) in RandomMovies"
+      :key="index">
+      </b-carousel-slide>
+    </b-carousel>
     <h1>전체 영화</h1>
     <div class="row">
-        <MainListItem
-        v-for="movie in movies"  
-        :key="movie.id"
-        :movie="movie"
-        class="items col-lg-2 col-md-4 col-sm-6"/>
-      </div>
+      <MainListItem
+      v-for="movie in movies"  
+      :key="movie.id"
+      :movie="movie"
+      class="items col-lg-2 col-md-4 col-sm-6"/>
     </div>
-
-  </template>
+  </div>
+</template>
 
 <script>
 import _ from 'lodash';
