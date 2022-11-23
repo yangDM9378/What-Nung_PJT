@@ -1,18 +1,43 @@
 <template>
-  <div>
-    <h1>내페이지</h1>
-    <div
-    v-for="sm in sortmovie" 
-    :key="sm.pk">{{ sm.title }}</div>
-    <hr>
-    
-    <div
-    v-for='mydata in mydatas'
-    :key="mydata.id" 
-    >{{ mydata.title }}  {{ mydata.poster_path}}
+  <div class="container text-center">
+    <div class="row">
+      <h1 style="margin-top:80px;">{{ nickname }} 일찍 왔누?</h1>
     </div>
+    <div class="row">
+      <div class="col p-3">
+        <div class="row">
+          <p style="font-size:1.5em;">왓눙 추천하는 영화</p>
+        </div>
+        <div class="row">
+          <div
+            v-for="sm in sortmovie" 
+            :key="sm.pk"
+            class="col-lg-4 col-sm-12">
+            <img :src="`https://image.tmdb.org/t/p/original/${sm.poster_path}`" class='b-card' style="width: 10rem; height: 13rem;margin: 4px;">
+          </div>
+        </div>
 
+
+      </div>
+      <div class="col p-3">
+        <div class="row">
+          <p style="font-size:1.5em;">{{ nickname }} 찜한 영화</p>
+        </div>
+        <div class="row" style="border-left-style: solid;">
+          <div
+            v-for='mydata in mydatas'
+            :key="mydata.id" 
+            class="col-lg-4 col-sm-12"
+            ><img :src="`https://image.tmdb.org/t/p/original/${mydata.poster_path}`" class='b-card' style="width: 10rem; height: 13rem;margin: 4px;">
+          </div>
+        </div>
+
+
+      </div>  
+
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -29,6 +54,9 @@ export default {
     myclick() {
       return this.$store.getters.myclick
     },
+    nickname() {
+      return this.$store.state.nickname
+    }
   },
   methods: {
     getmypage() {
@@ -52,7 +80,7 @@ export default {
       this.sortmovie=this.$store.state.movies.sort(function(a,b) {
         return b.click - a.click
       }).slice(0,5)
-    }
+    },
   },
   created() {
     this.getmypage()
