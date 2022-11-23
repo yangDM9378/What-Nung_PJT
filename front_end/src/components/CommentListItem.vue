@@ -1,7 +1,14 @@
 <template>
   <div>
-    {{ comment }}
+    <h5>
+    {{ comment.comment }}
+    </h5>
+    <p>
+    {{ comment.nickname }}
+    </p>
+    <hr style="height:3px">
   </div>
+
 </template>
 
 <script>
@@ -14,5 +21,10 @@ export default {
 </script>
 
 <style>
+.commentbox{
+  color: white;
+  
+}
+
 
 </style>

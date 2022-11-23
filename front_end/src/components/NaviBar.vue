@@ -84,14 +84,14 @@ nav a {
 .link1{
   float: left;
   display: inline-block;
-  font-size: 20px;
+  font-size: 10px;
   cursor: pointer;
 
 }
 .link2{
   text-align: right;
   display: inline-block;
-  font-size: 20px;
+  font-size: 10px;
   cursor: pointer;
 }
 </style>

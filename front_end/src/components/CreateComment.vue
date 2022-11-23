@@ -1,13 +1,13 @@
 <template>
+   <form @submit.prevent="createComment">
   <div>
-    <h1>CREATE 부분</h1>
-    <form @submit.prevent="createComment">
-      <!-- <label  for="comment">내용</label> -->
-      <input type="text" id="comment" cols="30" rows="2" v-model="comment" placeholder="이 콘텐츠의 어떤 점이 좋았는지 싫었는지 어쩌구 다른 사람들에게 도움을 어쩌구 ">
-      <!-- <textarea id="comment reviewbox" cols="30" rows="2" v-model="comment"></textarea><br> -->
-      <input type="submit" id="submit">
-    </form>
+    <input type="text" id="comment" cols="30" rows="2" v-model="comment" placeholder="이 콘텐츠의 어떤 점이 좋았는지 싫었는지 어쩌구 다른 사람들에게 도움을 어쩌구 " style="color:white">
+    </div>
+  <div>
+    <input type="submit" id="submit" value="등록">
   </div>
+    </form>
+ 
 </template>
 
 <script>
@@ -58,12 +58,12 @@ export default {
 <style>
 #comment{
   width: 600px;
-  height: 300px;
+  height: 100px;
   border-top:none;
   border-left:none;
   border-right:none;
-  background-color:rgb(54, 50, 50);
-  border-bottom: 3px solid white;
+  border-bottom: none;
+  background-color:#1c1c1c;
 
 }
 

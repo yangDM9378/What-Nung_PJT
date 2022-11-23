@@ -12,7 +12,7 @@ export default {
   },
   computed:{
     ImgSrc(){
-      const urls = 'https://image.tmdb.org/t/p/w500'
+      const urls = 'https://image.tmdb.org/t/p/original'
       return urls+this.movie.poster_path
     },
   },
