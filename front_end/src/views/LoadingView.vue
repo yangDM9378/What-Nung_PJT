@@ -21,9 +21,9 @@ export default {
     cncjs() {
       this.$router.push({ name : 'LogInView'})
     },
-    main() {
-      this.$router.push({ name:'main' })
-    }
+  },
+  created() {
+    setTimeout( () => this.$router.push({ name: 'MainView'}), 5000);
   }
 }
 </script>
