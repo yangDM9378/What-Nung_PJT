@@ -62,7 +62,7 @@ export default {
   width: 100%;
   height: 6%;
   display: table;
-  margin: 0 auto;
+  margin: 0;
   z-index:2;
   transition: all 300ms ease-in-out;
 }
@@ -83,16 +83,28 @@ export default {
     text-decoration: none;
     background-color:transparent;
 }
+.logout_btn:hover {
+  color: #497fe2;
+}
+
+.logout_btn:active {
+  color: #9090ee;
+}
+
+
 .link1{
   float: left;
   display: inline-block;
   cursor: pointer;
+  margin: 0px;
+  padding: 0px;
 
 }
 .link2{
   float: right;
   display: inline-block;
   cursor: pointer;
+  padding: 0px;
   margin-right:1.3rem
 }
 </style>

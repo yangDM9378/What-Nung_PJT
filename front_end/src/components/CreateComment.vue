@@ -71,10 +71,13 @@ export default {
 }
 
 #info-submit:hover {
-  background-color:  #008CBA;
   color:black;
 }
-
+#info-submit:active{
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
 
 
 </style>
