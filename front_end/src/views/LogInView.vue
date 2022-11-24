@@ -3,7 +3,7 @@
     <div id="login">
     <div id="login_form">
     <form @submit.prevent="logIn">
-      <h3 class="login" style="letter-spacing:-1px;">로그인 해줘!</h3>
+      <h3 class="login" style="letter-spacing:-1px;">Log-in</h3>
       <hr>
     <div>
       <label for="username">
