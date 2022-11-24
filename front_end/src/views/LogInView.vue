@@ -25,7 +25,7 @@
     </form>
     <hr>
     <p class="find">
-        <span><a href="signup" >회원가입하실?</a></span>
+        <span><a href="/signup">회원가입하실?</a></span>
     </p>
     <!-- <p class="find">
         <span><a href="">아이디 찾기</a></span>

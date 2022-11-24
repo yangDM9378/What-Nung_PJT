@@ -13,7 +13,7 @@
         <div class="link2">
           <router-link v-if="!isLogin" :to="{ name: 'SignUpView'}">회원가입</router-link> 
           <router-link v-if="!isLogin" :to="{ name: 'LogInView' }">로그인</router-link> 
-          <router-link v-if="isLogin" :to="{ name: 'MyPageView' }">{{ nickname }}</router-link> 
+          <router-link v-if="isLogin" :to="{ name: 'MyPageView' }">마이페이지</router-link> 
           <router-link v-if="isLogin" :to="{ name: 'MainView'}">
             <button class="logout_btn" @click="logOut">로그아웃</button>
           </router-link>

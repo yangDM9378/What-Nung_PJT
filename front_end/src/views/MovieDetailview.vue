@@ -24,7 +24,7 @@
         <hr>
         <div class="row">
           <div id="routerbox">
-            <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }" style="margin-right:10px">상세정보</router-link> |
+            <router-link :to="{ name: 'InformationList', params: { 'actor': movie.credit_set } }" style="margin-right:15px">출연진</router-link>|
             <router-link :to="{ name: 'CommentList' }" style="margin-left:10px">리뷰</router-link>
             <router-view></router-view>
           </div>

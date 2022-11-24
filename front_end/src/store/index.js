@@ -21,7 +21,7 @@ export default new Vuex.Store({
     comment:[],
     nickname:null,
     ismymoive:null,
-    myclick:[]
+    myclick:[],
   },
   getters: {
     // 로그인
@@ -43,8 +43,7 @@ export default new Vuex.Store({
       state.comment = comment
     },
     // 로그인
-    SIGNUP_TOKEN(state, token) {
-      state.token = token
+    SIGNUP_TOKEN() {
       router.push({ name: 'LogInView' })
     },
     LOGIN_TOKEN(state, token) {
@@ -107,11 +106,11 @@ export default new Vuex.Store({
           nick_name: payload.nick_name,
         }
       })
-        .then((res) => {
-          context.commit('SIGNUP_TOKEN', res.data.key)
+        .then(() => {
+          context.commit('SIGNUP_TOKEN')
         })
-        .catch((error) => {
-          console.log(error)
+        .catch(() => {
+          alert('아이디/비번을 확인해주세요')
         })
     },
     logIn(context, payload) {
@@ -124,9 +123,11 @@ export default new Vuex.Store({
         }
       })
         .then((res) => {
-          console.log(res)
           context.commit('LOGIN_TOKEN', res.data.key)
           context.dispatch('getMe', res.data.key)
+        })
+        .catch(() => {
+          alert('아이디/비번을 확인해주세요')
         })
     },
     logOut(context) {
@@ -137,6 +138,9 @@ export default new Vuex.Store({
       .then((res) => {
         console.log(res)
         context.commit('LOGOUT')
+      })
+      .catch((err) => {
+        console.log(err)
       })
     },
     getMe(context, key) {
@@ -150,6 +154,9 @@ export default new Vuex.Store({
       .then((res) => {
         console.log(res)
         context.commit('GETME', res)
+      })
+      .catch((err) => {
+        console.log(err)
       })
     },
     myMovie(context, movie_id) {

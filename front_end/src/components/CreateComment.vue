@@ -1,13 +1,13 @@
 <template>
-   <form @submit.prevent="createComment">
   <div>
-    <input type="text" id="comment" cols="30" rows="2" v-model="comment" placeholder="이 콘텐츠의 어떤 점이 좋았는지 싫었는지 어쩌구 다른 사람들에게 도움을 어쩌구 " style="color:white">
-    </div>
-  <div>
-    <input type="submit" id="submit" value="등록" style="width:100px">
-  </div>
+    <form @submit.prevent="createComment"  v-if="this.$store.state.token">
+      <input required type="text" id="info-comment" cols="30" rows="2" v-model="comment" placeholder="      이 영화에 대한 리뷰를 적어주세요!!!" style="color:white; margin-bottom:16px">
+      <input type="submit" id="info-submit" value="등록" style="width:15%;">
     </form>
- 
+    <form @submit.prevent="createComment"  v-if="!this.$store.state.token">
+      <input disabled  type="text" id="info-comment" cols="30" rows="2" v-model="comment" placeholder="      댓글 작성을 위해 로그인이 필요합니다" style="color:white; margin-bottom:16px">
+    </form>
+  </div>
 </template>
 
 <script>
@@ -30,10 +30,6 @@ export default {
       const comment = this.comment
       const movie_id = this.$route.params.id
       const nickname = this.nickname
-      if (!comment) {
-        alert('내용을 입력하시오')
-        return
-      }
       axios({
         method: 'post',
         url: `${API_URL}/backend/moives/${movie_id}/comments/`,
@@ -56,24 +52,23 @@ export default {
 </script>
 
 <style>
-#comment{
-  width: 600px;
+#info-comment{
+  width: 95%;
   height: 100px;
   border-top:none;
   border-left:none;
   border-right:none;
   border-bottom: none;
   background-color:#1c1c1c;
-
 }
 
-#submit{
+#info-submit{
   background-color: white;
   color: black;
   border: 2px solid #555555;
 }
 
-#submit:hover {
+#info-submit:hover {
   background-color:  #008CBA;
   color:black;
 }

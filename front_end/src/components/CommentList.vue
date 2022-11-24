@@ -1,9 +1,9 @@
 <template>
   <div class="reviewbox mt-3">
-    <div class="create">
+    <div class="createbox">
       <CreateComment />
     </div>
-    <div class="commentbox ">
+    <div class="commentbox">
     <CommentListItem 
     v-for='comment in comments'
     :key="comment.id"
@@ -59,13 +59,12 @@ export default {
   display: flex;
   flex-direction: column;
   width:50%;
-  
-
 }
 .commentbox{
   display: flex;
   flex-direction: column;
   width:60%;
+  margin-right: 4rem;
   
 }
 </style>

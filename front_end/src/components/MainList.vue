@@ -12,8 +12,9 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     > 
-      <b-carousel-slide :img-src="url+randommovie" v-for="(randommovie, index) in RandomMovies"
+      <b-carousel-slide :img-src="url+randommovie.backdrop_path" v-for="(randommovie, index) in RandomMovies"
       :key="index">
+      <button style="width:50rem; height: 5rem; margin-bottom:4rem;" @click="removie">다양한 영화 추천 받기</button>
       </b-carousel-slide>
     </b-carousel>
     <h1>전체 영화</h1>
@@ -30,6 +31,7 @@
 <script>
 import _ from 'lodash';
 import MainListItem from '@/components/MainListItem'
+import router from '@/router';
 export default {
   name:'MainList',
   components:{
@@ -41,7 +43,7 @@ export default {
     },
     RandomMovies(){
       const arr_sample = _.sampleSize(this.movies,5).map((el) =>{
-        return el.backdrop_path
+        return el
       })
       return arr_sample
     },
@@ -69,6 +71,11 @@ export default {
     onSlideEnd() {
       this.sliding = false
     },
+    removie() {
+      if (!this.$store.state.token) {
+        router.push({ name: 'LogInView' })
+      }
+    }
   }
 }
 </script>
