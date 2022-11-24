@@ -5,23 +5,23 @@
     <form @submit.prevent="logIn">
       <h3 class="login" style="letter-spacing:-1px;">Log-in</h3>
       <hr>
-    <div>
-      <label for="username">
-      <p style="text-align: left; font-size:12px; color:#666">Username</p>
-      <input type="text" id="username" v-model="username" placeholder="너의 아이디는?" class="size">
-      </label>
-      <p></p>
-    </div>
-    <div>
-      <label for="password">
-      <p style="text-align: left; font-size:12px; color:#666">Password </p>
-      <input type="password" id="password" v-model="password" placeholder="너의 비번은?" class="size">
-      </label>
-      <p></p>
-    </div>
-      <p>
-      <input type="submit" value="logIn" class="login_btn">
-      </p>
+      <div>
+        <label for="username">
+        <p style="text-align: left; font-size:12px; color:#666">Username</p>
+        <input type="text" id="username" v-model="username" placeholder="너의 아이디는?" class="size">
+        </label>
+        <p></p>
+      </div>
+      <div>
+        <label for="password">
+        <p style="text-align: left; font-size:12px; color:#666">Password </p>
+        <input type="password" id="password" v-model="password" placeholder="너의 비번은?" class="size">
+        </label>
+        <p></p>
+      </div>
+        <p>
+        <input type="submit" value="logIn" class="login_btn">
+        </p>
     </form>
     <hr>
     <p class="find">
