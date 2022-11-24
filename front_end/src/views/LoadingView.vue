@@ -5,7 +5,7 @@
       <hr>
       <div class="wrapper">
       <div class="link_wrapper">
-        <button class="button1" @click="cncjs">추천 받으시겠습니다?</button>
+        <button class="button1" @click="cncjs">시작하시겠습니까?</button>
   </div>
 </div>
 </div>
@@ -19,12 +19,9 @@ export default {
   name:'LoadingView',
   methods:{
     cncjs() {
-      this.$router.push({ name : 'LogInView'})
+      this.$router.push({ name : 'MainView'})
     },
   },
-  created() {
-    setTimeout( () => this.$router.push({ name: 'MainView'}), 5000);
-  }
 }
 </script>
 

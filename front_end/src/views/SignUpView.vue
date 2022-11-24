@@ -3,10 +3,10 @@
     <div id="login">
     <div id="login_form">
     <form @submit.prevent="signUp">
-        <h3 class="login" style="letter-spacing:-1px;">영화 추천 받을래?</h3>
+        <h3 class="login" style="letter-spacing:-1px;">signup</h3>
         <hr>
         <label for="username">
-          <p style="text-align: left; font-size:12px; color:#666">username</p>
+          <p style="text-align: left; font-size:12px; color:#666">ID</p>
           <input type="text" id="username" v-model="username" placeholder="아이디" class="size">
         </label>
         <p></p>
@@ -37,7 +37,7 @@
 
     <hr>
     <p class="find">
-        <span><a href="/login" >로그인 가실?</a></span>
+        <span><a href="/login" >로그인</a></span>
     </p>
     </div>
   </div>
@@ -137,14 +137,20 @@ a{
     width:310px;
     height: 40px;
     font-size:15px;
-    background-color: #df3278;
-    color:#fff;
+    background-color:  #ede5e8;
+    color:rgb(17, 17, 17);
     border:none;
     cursor: pointer;
     border-radius: 5px;
 }
 .signup_btn:hover{
-    background:#ca296a;
+    background:rgb(17, 17, 17);
+    color:  #ede5e8;;
+}
+.signup_btn:active{
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
 }
 hr{
     margin-top:20px;

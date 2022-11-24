@@ -1,12 +1,13 @@
 <template>
   <div class="container text-center"> 
     <div class="row">
-      <h1 style="margin-top:80px;">{{ nickname }}님 왔눙</h1>
+      <h1 style="margin-top:80px; color: #f1f1f6;opacity: 0.8;">{{ nickname }} 님</h1>
+      <p> WAT-NUNG</p>
     </div>
     <div class="row">
       <div class="col p-3" style="border-right-style: solid;">
         <div class="row">
-          <p style="font-size:1.5em;">왓눙이 추천하는 영화</p>
+          <p style="font-size:1.5em;  color: #f1f1f6; opacity: 0.6;">WAT-NUNG이 추천하는 영화</p>
         </div>
         <br>
         <div class="row">
@@ -20,7 +21,7 @@
       </div>
       <div class="col p-3" style="border-left-style: solid; border:3px">
         <div class="row">
-          <p style="font-size:1.5em;">{{ nickname }}님이 찜한 영화</p>
+          <p style="font-size:1.5em; color: #f1f1f6; opacity: 0.6;">{{ nickname }} 님이 찜한 영화</p>
         </div>
         <br>
         <div class="row" >
@@ -80,7 +81,7 @@ export default {
     sortarr() {
       this.sortmovie=this.$store.state.movies.sort(function(a,b) {
         return b.click - a.click
-      }).slice(0,5)
+      }).slice(0,12)
     },
     detailpage(id) {
       this.$router.push({ name:'detail', params:{ id }})

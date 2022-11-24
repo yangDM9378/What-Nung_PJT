@@ -3,19 +3,19 @@
     <div id="login">
     <div id="login_form">
     <form @submit.prevent="logIn">
-      <h3 class="login" style="letter-spacing:-1px;">Log-in</h3>
+      <h3 class="login" style="letter-spacing:-1px;">Login</h3>
       <hr>
       <div>
         <label for="username">
         <p style="text-align: left; font-size:12px; color:#666">Username</p>
-        <input type="text" id="username" v-model="username" placeholder="너의 아이디는?" class="size">
+        <input type="text" id="username" v-model="username" placeholder="아이디를 입력해주세요." class="size">
         </label>
         <p></p>
       </div>
       <div>
         <label for="password">
         <p style="text-align: left; font-size:12px; color:#666">Password </p>
-        <input type="password" id="password" v-model="password" placeholder="너의 비번은?" class="size">
+        <input type="password" id="password" v-model="password" placeholder="비밀번호를 입력해주세요." class="size">
         </label>
         <p></p>
       </div>
@@ -25,7 +25,7 @@
     </form>
     <hr>
     <p class="find">
-        <span><a href="/signup">회원가입하실?</a></span>
+        <span><a href="/signup">회원가입</a></span>
     </p>
     <!-- <p class="find">
         <span><a href="">아이디 찾기</a></span>
@@ -78,9 +78,11 @@ a{
     color:#333;
 }
 #con{
+    background: url('http://www.gamevu.co.kr/news/photo/202209/24375_62849_514.jpg');
+    opacity: 0.9;
     width:100%;
     height: 100vh;
-    background-color:#f5f1ee;
+    background-color:#312f2e;
     background-position: center center;
     background-repeat: no-repeat;
     background-size:cover;
@@ -124,14 +126,20 @@ a{
     width:310px;
     height: 40px;
     font-size:15px;
-    background-color: #df3278;
-    color:#fff;
+    background-color: #ede5e8;
+    color:rgb(17, 17, 17);
     border:none;
     cursor: pointer;
     border-radius: 5px;
 }
 .login_btn:hover{
-    background:#ca296a;
+    background:#2b292a;
+    color:#ede5e8;
+}
+.login_btn:active{
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
 }
 hr{
     margin-top:20px;
@@ -161,5 +169,5 @@ hr{
 .find a:hover{
     color:#707070;
 }
+
 </style>
-[출처] HTML/CSS 로그인, 회원가입 폼 실습|작성자 김써니의 코딩기록

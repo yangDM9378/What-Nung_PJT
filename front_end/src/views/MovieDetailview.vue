@@ -14,7 +14,7 @@
   
         </h1>
 
-         <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
+         <h3>평점 | {{this.movie.vote_avg}} 점 </h3>
          <h4>줄거리 | {{ this.movie?.overview.substr(0,100) }}...</h4>
          <div clas="row">
           <div class="column"
