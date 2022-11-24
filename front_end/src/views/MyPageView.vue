@@ -1,34 +1,35 @@
 <template>
-  <div class="container text-center">
+  <div class="container text-center"> 
     <div class="row">
       <h1 style="margin-top:80px;">{{ nickname }}님 왔눙</h1>
     </div>
     <div class="row">
-      <div class="col p-3">
+      <div class="col p-3" style="border-right-style: solid;">
         <div class="row">
           <p style="font-size:1.5em;">왓눙이 추천하는 영화</p>
         </div>
+        <br>
         <div class="row">
           <div
             v-for="sm in sortmovie" 
             :key="sm.pk"
-            class="col-lg-4 col-sm-12">
-            <img :src="`https://image.tmdb.org/t/p/original/${sm.poster_path}`" class='b-card' style="width: 10rem; height: 13rem;margin: 4px;">
+            class="col-lg-4 col-md-6 col-sm-12">
+            <img :src="`https://image.tmdb.org/t/p/original/${sm.poster_path}`" class='b-card' style="width: 10rem; height: 13rem; margin: 4px;" @click="detailpage(sm.id)">
           </div>
         </div>
-
-
       </div>
-      <div class="col p-3">
+      <div class="col p-3" style="border-left-style: solid; border:3px">
         <div class="row">
           <p style="font-size:1.5em;">{{ nickname }}님이 찜한 영화</p>
         </div>
-        <div class="row" style="border-left-style: solid;">
+        <br>
+        <div class="row" >
           <div
             v-for='mydata in mydatas'
             :key="mydata.id" 
-            class="col-lg-4 col-sm-12"
-            ><img :src="`https://image.tmdb.org/t/p/original/${mydata.poster_path}`" class='b-card' style="width: 10rem; height: 13rem;margin: 4px;">
+            class="col-lg-4 col-md-6  col-sm-12"
+            @click="detailpage(mydata.id)"
+            ><img :src="`https://image.tmdb.org/t/p/original/${mydata.poster_path}`" class='b-card' style="width: 10rem; height: 13rem; margin: 4px;">
           </div>
         </div>
 
@@ -81,6 +82,9 @@ export default {
         return b.click - a.click
       }).slice(0,5)
     },
+    detailpage(id) {
+      this.$router.push({ name:'detail', params:{ id }})
+    }
   },
   created() {
     this.getmypage()

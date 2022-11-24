@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 80px">
+  <div style="margin-top: 4rem">
     <div class="row">
       <GenreListItem 
       v-for="genre in genre_select"

@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.shortcuts import get_object_or_404, get_list_or_404
-from .serializers import MovieSerializer, CommentSerializer
+from .serializers import MovieSerializer, CommentSerializer, MoviedetailSerializer
 from .models import Genre, Movie, Comment
 from django.shortcuts import render
 # 권한
@@ -15,6 +15,13 @@ def main(request):
     movies = get_list_or_404(Movie)
     serializer = MovieSerializer(movies, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def moviedetail(request,movie_pk):
+    movie = get_object_or_404(Movie, pk=movie_pk)
+    if request.method=='GET':
+        serializer = MoviedetailSerializer(movie)
+        return Response(serializer.data)
 
 @api_view(['GET'])
 def comment_list(request):
@@ -57,3 +64,4 @@ def cnt(request, movie_pk):
     movie.click+=1
     movie.save()
     return Response(movie.click)
+

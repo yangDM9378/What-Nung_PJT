@@ -1,15 +1,19 @@
 <template>
- <div class="Container-fluid">
-  <div >
+ <div class="Container-fluid" v-if="movie">
+  <div style="width: 100%; height: 100%;">
     <div class="row"
     id="backdrop"
-    :style="{backgroundImage: `linear-gradient(to top, rgb(0, 0, 0) 2%, rgba(0, 0, 0, 0) 50%), linear-gradient(to right, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.1) 100%), url('${ImgSrc}')`}"
+    :style="{backgroundImage: `linear-gradient(to top, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%), linear-gradient(to right, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.1) 30%), url('${ImgSrc}')`}"
     >
       <div class="row"
       id="content">
-        <h1>{{this.movie?.title}}</h1>
-        <button v-if="!ismymoive" style="width: 20%; background-color: white; border: 2px solid #555555;" @click="myMovie ">원하눙?</button>
-        <button v-if="ismymoive" style="width: 20%; background-color:#555555;" @click="myMovie" >찜했눙!</button>
+        <h1>{{this.movie?.title}}
+          <font-awesome-icon icon="fa-solid fa-heart-circle-plus" v-if="!ismymoive" @click="myMovie"/>
+          <font-awesome-icon icon="fa-solid fa-heart-circle-check" v-if="ismymoive" @click="myMovie"/>
+
+  
+        </h1>
+
          <h3>별점 | {{this.movie.vote_avg}} 점 </h3>
          <h4>줄거리 | {{ this.movie?.overview.substr(0,100) }}...</h4>
          <div clas="row">
@@ -68,11 +72,18 @@ export default {
   },
   methods: {
     getMovieById() {
-      const id = this.$route.params.id
-      if ( this.$store.state.movie.id === Number(id)) {
-        this.movie = this.$store.state.movie
-      }
+      axios({
+        method:'get',
+        url:`${API_URL}/backend/movies/${this.$route.params.id}/`,
+      })
+      .then((res) => {
+        this.movie=res.data
+      })
+      .catch((err) => {
+        console.log(err)
+      })
     },
+
     myMovie() {
       this.$store.dispatch('myMovie', this.$route.params.id)
     }, 

@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 80px">
+  <div style="margin-top: 4rem">
     <div class="row">
       <AllGenreListItem
       v-for="movie in movies"
