@@ -2,14 +2,10 @@
   <div class="totalbox">
     <h1 class="typing-text">WELCOME,
       THIS IS WAT-NUNG</h1>
+      <hr>
       <div class="wrapper">
       <div class="link_wrapper">
-        <button class="button1">추천 받으시겠습니까?</button>
-      <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
-        <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"/>
-      </svg>
-    </div>
+        <button class="button1" @click="cncjs">추천 받으시겠습니다?</button>
   </div>
 </div>
 </div>
@@ -20,7 +16,15 @@
 
 <script>
 export default {
-  name:'LoadingView'
+  name:'LoadingView',
+  methods:{
+    cncjs() {
+      this.$router.push({ name : 'LogInView'})
+    },
+    main() {
+      this.$router.push({ name:'main' })
+    }
+  }
 }
 </script>
 
@@ -58,7 +62,7 @@ font-family: 'Rubik Mono One', sans-serif;
   font-weight: bold;
   color: rgb(243, 229, 229);
   border-right: 3px solid white;
-  animation: blink .5s infinite , typing 1.5s steps(22);
+  animation: blink .5s infinite , typing 3s steps(22);
   white-space: nowrap;
   overflow: hidden;
 

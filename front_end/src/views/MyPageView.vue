@@ -84,11 +84,15 @@ export default {
     },
     detailpage(id) {
       this.$router.push({ name:'detail', params:{ id }})
+    },
+    getMain() {
+      this.$store.dispatch('getMain')
     }
   },
   created() {
     this.getmypage()
     this.sortarr()
+    this.getMain()
   }
 }
 

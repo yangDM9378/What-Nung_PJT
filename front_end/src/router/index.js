@@ -17,13 +17,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'MainView',
-    component: MainView
-  },
-  {
-    path: '/loading',
     name: 'LoadingView',
     component: LoadingView
+  },
+  {
+    path: '/main',
+    name: 'MainView',
+    component: MainView
   },
   {
     path: '/signup',
