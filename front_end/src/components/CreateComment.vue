@@ -1,11 +1,11 @@
 <template>
   <div>
     <form @submit.prevent="createComment"  v-if="this.$store.state.token">
-      <input required type="text" id="info-comment" cols="30" rows="2" v-model="comment" placeholder="      이 영화에 대한 리뷰를 적어주세요!!!" style="color:white; margin-bottom:16px">
+      <input required type="text" id="info-comment" cols="30" rows="2" v-model="comment" placeholder=" 이 영화에 대한 리뷰를 적어주세요." style="color:white; margin-bottom:16px">
       <input type="submit" id="info-submit" value="등록" style="width:15%;">
     </form>
     <form @submit.prevent="createComment"  v-if="!this.$store.state.token">
-      <input disabled  type="text" id="info-comment" cols="30" rows="2" v-model="comment" placeholder="      댓글 작성을 위해 로그인이 필요합니다" style="color:white; margin-bottom:16px">
+      <input disabled  type="text" id="info-comment" cols="30" rows="2" v-model="comment" placeholder="   댓글 작성을 위해 로그인이 필요합니다." style="color:white; margin-bottom:16px">
     </form>
   </div>
 </template>
@@ -69,10 +69,13 @@ export default {
 }
 
 #info-submit:hover {
-  background-color:  #008CBA;
   color:black;
 }
-
+#info-submit:active{
+  box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+  position: relative;
+  top:2px;
+}
 
 
 </style>

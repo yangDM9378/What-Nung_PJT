@@ -9,6 +9,8 @@ import GenreView from '@/views/GenreView'
 import AllGenreView from '@/views/AllGenreView'
 import InformationList from '@/components/InformationList'
 import CommentList from '@/components/CommentList'
+import LoadingView from '@/views/LoadingView'
+
 
 Vue.use(VueRouter)
 
@@ -17,6 +19,11 @@ const routes = [
     path: '/',
     name: 'MainView',
     component: MainView
+  },
+  {
+    path: '/loading',
+    name: 'LoadingView',
+    component: LoadingView
   },
   {
     path: '/signup',

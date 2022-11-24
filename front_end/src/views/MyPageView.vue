@@ -1,12 +1,12 @@
 <template>
   <div class="container text-center">
     <div class="row">
-      <h1 style="margin-top:80px;">{{ nickname }} 일찍 왔누?</h1>
+      <h1 style="margin-top:80px;">{{ nickname }}님 왔눙</h1>
     </div>
     <div class="row">
       <div class="col p-3">
         <div class="row">
-          <p style="font-size:1.5em;">왓눙 추천하는 영화</p>
+          <p style="font-size:1.5em;">왓눙이 추천하는 영화</p>
         </div>
         <div class="row">
           <div
@@ -21,7 +21,7 @@
       </div>
       <div class="col p-3">
         <div class="row">
-          <p style="font-size:1.5em;">{{ nickname }} 찜한 영화</p>
+          <p style="font-size:1.5em;">{{ nickname }}님이 찜한 영화</p>
         </div>
         <div class="row" style="border-left-style: solid;">
           <div

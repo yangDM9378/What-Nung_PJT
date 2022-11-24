@@ -57,14 +57,11 @@ export default {
   left: 0;
   width: 100%;
   display: table;
-  margin: 0 auto;
+  margin: 0;
   z-index:2;
   transition: all 300ms ease-in-out;
 }
 
-/* #navbar.navbar--dark {
-  background-color: #4d4d4d;
-}  */
 
 #navbar a {
   text-decoration: none;
@@ -81,11 +78,22 @@ export default {
     text-decoration: none;
     background-color:transparent;
 }
+.logout_btn:hover {
+  color: #497fe2;
+}
+
+.logout_btn:active {
+  color: #9090ee;
+}
+
+
 .link1{
   float: left;
   display: inline-block;
   font-size: 10px;
   cursor: pointer;
+  margin: 0px;
+  padding: 0px;
 
 }
 .link2{
@@ -93,6 +101,10 @@ export default {
   display: inline-block;
   font-size: 10px;
   cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+
+
 }
 </style>
 
