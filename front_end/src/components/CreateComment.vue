@@ -1,11 +1,13 @@
 <template>
   <div>
     <form @submit.prevent="createComment"  v-if="this.$store.state.token">
-      <input required type="text" id="info-comment" cols="30" rows="2" v-model="comment" placeholder="      이 영화에 대한 리뷰를 적어주세요!!!" style="color:white; margin-bottom:16px">
-      <input type="submit" id="info-submit" value="등록" style="width:15%;">
+      <div>
+      <input required type="text" id="info-comment" cols="30" rows="2" v-model="comment" placeholder="이 영화에 대한 리뷰를 적어주세요!!!" style="color:white; margin-bottom:16px; margin-left:3px;">
+      <input type="submit" id="info-submit" value="등록" style="width:15%; margin-left:3px;">
+      </div>
     </form>
     <form @submit.prevent="createComment"  v-if="!this.$store.state.token">
-      <input disabled  type="text" id="info-comment" cols="30" rows="2" v-model="comment" placeholder="      댓글 작성을 위해 로그인이 필요합니다" style="color:white; margin-bottom:16px">
+      <input disabled  type="text" id="info-comment" cols="30" rows="2" v-model="comment" placeholder="댓글 작성을 위해 로그인이 필요합니다" style="color:white; margin-bottom:16px; margin-left:3px;">
     </form>
   </div>
 </template>
